@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Event Information</title>
+</head>
+
+<body>
+	<h1>Event Information</h1>
+	<form name="event" action="success.html" method="post">
+		<fieldset>
+			<div>
+      			<label>Full name:</label>
+      			<input type="text" name="fullname">
+    		</div>
+
+    		<div>
+      			<label>Email:</label>
+      			<input type="email" name="email">
+    		</div>
+
+			<div>
+      			<label>Event name:</label>
+      			<input type="text" name="event-name" placeholder="Name this event">
+    		</div>
+
+
+    		<div>    
+      			<label>Choose a date:</label>
+      			<input type="date" name="date">
+    		</div>
+
+			<select name="Number of Attendees">
+        		<option value="people">10-15</option>
+        		<option value="people">15-20</option>
+        		<option value="people">20+</option>
+      		</select>
+
+      		 <div>
+      			<input type="checkbox" name="cb-yes" value="yes">
+      			Is this a surprise party?
+    			</div>
+     	</fieldset>
+     		 <button type="submit">Submit</button>
+     </form>
+</body>
+
+</html>
