@@ -32,11 +32,12 @@ figcaption {
 }
 
 body {
-	width: 960px;
+	max-width: 960px;
+
 }
 
 #external-links {
-  width: 200px;
+  width: 20%;
   display: inline-block;
   vertical-align: text-top;
 }
@@ -45,4 +46,27 @@ main {
   width: 756px;
   display: inline-block;
   vertical-align: text-top;
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    background-color: hotpink;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  h1 { font-size: 100%;
+
+  }
+}
+
+@media screen and (max-width: 500px) {
+  img { width: 50%;
+            height: auto;
+  }
+}
+@media  screen  and (max-width: 500px) {
+  main { font-size: 20px;
+         width: 75%;
+  }
 }
