@@ -1,0 +1,52 @@
+- Walk forward until you reach the elevator door.
+- Press the "up" (top) botton or "down" (bottom) button.
+- When the doors open, wait for any people who need to exit the elevator.
+- Make sure the elevator is going the direction you want to go.
+- Make sure the elevator has enough space for you to fit (not too crowded).
+- If you feel there is enough space for you:
+	- Eter the elevator.
+	- Once in the elevator, you want to go to floor 8. 
+	- Press the button with the '8'.
+	- If you cannot reach the button due to crowding, ask someone to press 8 for you. 
+	- Pay attention to the stops so you do not miss your floor. 
+	- When the number above the door reads '8', exit the elevator. 
+- Otherwise:
+	- Let the doors.
+	- Press the elevator call (up or down) button again.
+	- - When the doors open, wait for any people who need to exit the elevator.
+	- Make sure the elevator is going the direction you want to go.
+	- Make sure the elevator has enough space for you to fit (not too crowded).
+	- Eter the elevator.
+	- Once in the elevator, you want to go to floor 8. 
+	- Press the button with the '8'.
+	- If you cannot reach the button due to crowding, ask someone to press 8 for you. 
+	- Pay attention to the stops so you do not miss your floor. 
+	- When the number above the door reads '8', exit the elevator. 
+
+How to take a shower:
+
+- Walk to the shower.
+- Turn the dial to the temperature you want (hot, mild, cold).
+- Activate the shower head by pressing/pulling the shower button/knob. 
+- Test the temperature of the water by placing your hand under the running water.
+- If the water is at the temperature you want:
+	- Enter the shower
+	- Make sure to close the curtain/door to avoid getting water everywhere.
+	- Wash and rinse your hair.
+	- Wash and rinse your face and body.
+	- Make sure you've rinsed all the soap off.
+	- Turn off the shower. 
+	- Exit the shower. 
+	- All done!
+-Otherwise:
+	- Continue to test the water until it is at the temperature you want.
+	- Adjust the dial if needed. 
+	- Once the water reaches the temperature you want:
+		- Enter the shower
+		- Make sure to close the curtain/door to avoid getting water everywhere.
+		- Wash and rinse your hair.
+		- Wash and rinse your face and body.
+		- Make sure you've rinsed all the soap off.
+		- Turn off the shower. 
+		- Exit the shower. 
+		- All done!
