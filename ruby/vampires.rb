@@ -1,5 +1,6 @@
 
 
+
 puts "Welcome to Werewolf, Inc. HR Department. Here is where we process new applicant questionnaires through our nifty Vampire Applicant Detection System!"
 
 #Detrmining how man applicant questionairres there are so program knows how long to run the loop
@@ -7,18 +8,28 @@ puts "Welcome to Werewolf, Inc. HR Department. Here is where we process new appl
 puts "How many applicants will be processed today?"
 applicants = gets.to_i
 
-until applicants == 0 do
+until applicants == 0 
+
+	puts "Applicants remanining: #{applicants}"
 
 #New Applicant Questionnaire
 #Questions used to determine if a new applicant is a vampire
 puts "What is your name?"
 name = gets.chomp
 
+		if name == "Drake Cula" || name == "Tu Fang"
+			known_vampire = true
+		else
+			known_vampire = false
+		end
+
+
 puts " How old are you?"
 age = gets.to_i
 
 puts "When were you born?"
 birthyear = gets.to_i
+
 #determine if applicant lied about his/her age
 # allows us to take the current year and find the difference beteween birth year and today
 #Will account for the possibility that a person might be younger than the outcome (by no more than one year)
@@ -26,48 +37,66 @@ birthyear = gets.to_i
 
 currentyear = 2017
 
-if (currentyear - birthyear == age) || (currentyear - birthyear == age - 1)
+if age == (2017 - birthyear +- 1)
 		true_age = true
 	else
-		true_age - false
+		true_age = false
 end
 
 puts "Our company really like garlic bread, so we serve a lot in our cafeteria. Would you like us to order some for you? (yes/no)"
 garlic = gets.chomp
 
-if garlic == "yes" 
-		garlic = true
+	if garlic == "yes"
+		 wants_garlic = true
 	else
-		garlic = false
-end
+	 	 wants_garlic = false
+	end
 
 puts " Do you plan on enrolling in the company's health insurance? (yes/no)"
 insurance = gets.chomp
 
-if insurance == "yes"
-		insurance = true
+	if insurance == "yes"
+		wants_insurance = true
 	else
-		insurance = false
-end
+		wants_insurance = false
+	end
 
 #Initiate loop to determine if applicant has a sun allergy and set variable
 
-
+allergies_listed = false
 puts " Please list all known allergies, one at a time. If you do not have any, or have finished listing them, please enter 'DONE'."
 allergy = gets.chomp
 
-while (allergy != "sunshine") && (allergy != "DONE")
-		puts "Thank you! Please enter another allergy."
+until allergies_listed = true 
 		allergy = gets.chomp
+		if allergy == "sunshine" 
+				allergies_listed = true
+		elsif allergy == "DONE" 
+			allergies_listed = true
+		else 
+			puts "please list another allergry. If no others exist, please enter 'DONE'."
+		allergies = gets.chomp
+	end 
 end
 
-case object
-	when (allergy == "sunshine")
+
+	if known_vampire == true
+		results = "Definitely a vampire!"
+	elsif true_age == true && (wants_garlic == true || wants_insurance == true)
+		results = "Probably not a vampire."
+	elsif true_age == false && (wants_garlic == false || wants_insurance == false)
 		results = "Probably a vampire."
-
+	elsif (true_age == false && wants_garlic == false && wants_insurance == false)
+		results = "Almost certainly a vampire."
+	elsif allergy == "sunshine" 
+		results = "Probably a vampire."
+	else 
+		results == "Might be a vampire, might be a werewolf, might be a unicorn...who knows?? Results inconclusive." 
 	
+	end
+	p results 
+	applicants -= 1
 end
 
-end
-
-
+puts "No more applicants for today."
+puts "Actually, never mind! What do these questions have to do with anything?! Let's all be friends!"
