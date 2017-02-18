@@ -24,6 +24,7 @@ def decrypt(encryption)
 #declare a variable for the alphabet to use as a point of reference for 
 #decryption 
  reference = "abcdefghijklmnopqrstuvwxyz"
+
  #define variable 
  y = 0
 
@@ -31,6 +32,12 @@ def decrypt(encryption)
 	until y == encryption.length
 		encryption[y] = reference[reference.index(encryption[y]) - 1]
 		# below attempt at decrypting spaces...did not work
+
+ y = 0
+
+	until y == encryption.length
+		encryption[y] = reference[reference.index(encryption[y]) - 1]
+
 	if encryption[y] == " "
 		encryption[y] = "!"
 	elsif encryption[y] =="'"
@@ -44,6 +51,7 @@ def decrypt(encryption)
 
 end
 
+
 #prompt user to decide what he/she wants to do with their password
 puts "Would you like to encrypt or decrpyt your password?"
 answer = gets.chomp
@@ -54,6 +62,13 @@ user_password = gets.chomp
 
 #instruct to encrypt or decrypt user's password based on their choice of either 
 #encrypt or decrypt	
+
+puts "Would you like to encrypt or decrpyt your password?"
+answer = gets.chomp
+puts " Please enter your password."
+user_password = gets.chomp
+	
+
 	if answer == "encrypt"
 			puts encrypt(user_password)
 	elsif answer == "decrypt"
@@ -62,7 +77,11 @@ user_password = gets.chomp
 		puts "Please try again."
 	end
 
+
 =begin 
+=======
+=begin
+>>>>>>> 28ea7c502854739c5bedad7d5ea6625beeb8445a
 puts encrypt("abc")
 puts encrypt("zed")
 puts decrypt("bcd")
