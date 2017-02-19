@@ -1,3 +1,75 @@
+header {
+  background-color: green;
+  border: dashed black 8px;
+  padding: 10px;
+  font-family: "Comic Sans MS", Comic;
+  font-weight: bold;
+  text-align: center;
+  position: sticky;
+  
+}
+
+h1 {
+	font-weight: bold;
+}
+
 body {
-  background-color: hotpink;
+  max-width: 960px;
+  padding: 10px;
+  margin: 15px;
+  text-align: center;
+}
+.column-1 {
+  background-color: white;
+  width: 440px;
+  float: left;
+  padding:10px;
+  box-sizing: border-box;
+  text-align: justify;
+}
+.column-2 {
+  background-color: white;
+  width: 440px;
+  float: right;
+  padding: 20px 20px 20px 50px;
+  box-sizing: border-box;
+  text-align: justify;
+}
+footer {
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+  background-color: black;
+  clear:both;
+  padding: 20px;
+  /*
+  position: fixed;
+  */
+}
+
+ul li {
+	list-style: circle;
+}
+
+
+@media screen and (max-width: 500px) {
+  h1 { font-size: 100%;
+
+  }
+}
+
+
+@media  screen  and (max-width: 500px) {
+  body { font-size: 20px;
+         width: 75%;
+  }
+}
+
+a {
+	color: hotpink;
+	font-weight: bold;
+}
+
+a:hover {
+	color: purple;
 }
