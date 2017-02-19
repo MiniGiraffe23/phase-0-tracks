@@ -17,11 +17,11 @@ until applicants == 0
 puts "What is your name?"
 name = gets.chomp
 
-		if name == "Drake Cula" || name == "Tu Fang"
+	if name == "Drake Cula" || name == "Tu Fang"
 			known_vampire = true
 		else
 			known_vampire = false
-		end
+	end
 
 
 puts " How old are you?"
@@ -35,23 +35,25 @@ birthyear = gets.to_i
 #Will account for the possibility that a person might be younger than the outcome (by no more than one year)
 #because birthday has not occurred yet
 
-currentyear = 2017
+	x = 1
 
-if age == (2017 - birthyear +- 1)
+	if age == (2017 - (birthyear - x)) or age == (2017 - birthyear)
 		true_age = true
-	else
+		else
 		true_age = false
-end
+	end
 
+#determine whether or not an applicant like garlic 
 puts "Our company really like garlic bread, so we serve a lot in our cafeteria. Would you like us to order some for you? (yes/no)"
 garlic = gets.chomp
 
 	if garlic == "yes"
 		 wants_garlic = true
-	else
+		else
 	 	 wants_garlic = false
 	end
 
+#Determine whether or not an applicant wants insurance, if not they could be immortal
 puts " Do you plan on enrolling in the company's health insurance? (yes/no)"
 insurance = gets.chomp
 
@@ -63,39 +65,39 @@ insurance = gets.chomp
 
 #Initiate loop to determine if applicant has a sun allergy and set variable
 
-allergies_listed = false
 puts " Please list all known allergies, one at a time. If you do not have any, or have finished listing them, please enter 'DONE'."
 allergy = gets.chomp
 
-until allergies_listed = true 
-		allergy = gets.chomp
-		if allergy == "sunshine" 
-				allergies_listed = true
-		elsif allergy == "DONE" 
-			allergies_listed = true
-		else 
-			puts "please list another allergry. If no others exist, please enter 'DONE'."
-		allergies = gets.chomp
-	end 
-end
+  while (allergy != "DONE") do
+          if (allergy == "sunshine") 
+           break 
+           
+          elsif (allergy != "sunshine")
+            puts "Please list another allergy. If no other allergies exist, enter 'DONE'."
+            allergy = gets.chomp
+          end
+      end
 
+    #Determine which results will be printed based upon the input data received from the above questionnaire
 
 	if known_vampire == true
 		results = "Definitely a vampire!"
+
 	elsif true_age == true && (wants_garlic == true || wants_insurance == true)
 		results = "Probably not a vampire."
+
+	elsif true_age == false && wants_garlic == false && wants_insurance == false
+		results = "Almost certainly a vampire."
+
 	elsif true_age == false && (wants_garlic == false || wants_insurance == false)
 		results = "Probably a vampire."
-	elsif (true_age == false && wants_garlic == false && wants_insurance == false)
-		results = "Almost certainly a vampire."
-	elsif allergy == "sunshine" 
-		results = "Probably a vampire."
+
 	else 
-		results == "Might be a vampire, might be a werewolf, might be a unicorn...who knows?? Results inconclusive." 
+		results = "Might be a vampire, might be a werewolf, might be a unicorn...who knows?? Results inconclusive." 
 	
 	end
-	p results 
-	applicants -= 1
+puts results 
+applicants -= 1
 end
 
 puts "No more applicants for today."
