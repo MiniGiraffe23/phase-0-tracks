@@ -102,3 +102,5 @@ end
 
 puts "No more applicants for today."
 puts "Actually, never mind! What do these questions have to do with anything?! Let's all be friends!"
+
+#would like code to be reivewed. This was a tough one. 
