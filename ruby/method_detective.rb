@@ -4,7 +4,8 @@
 # When there's more than one suspect who could have
 # committed the crime, add additional calls to prove it.
 
-# "iNvEsTiGaTiOn".<???>
+# "iNvEsTiGaTiOn".swapcase
+p "iNvEsTiGaTiOn".swapcase
 # => “InVeStIgAtIoN”
 
 # "zom".<???>
@@ -13,13 +14,25 @@
 # "enhance".<???>
 # => "    enhance    "
 
-# "Stop! You’re under arrest!".<???>
+# "Stop! You’re under arrest!".<upcase>
+p "Stop! You're under arrest!".upcase
+
 # => "STOP! YOU’RE UNDER ARREST!"
 
-# "the usual".<???>
+# "the usual".<+ ____.to_s> adds one string to another
+#"the usual".ljust (18, " suspects") make the string equal to 18 characters and add suspects
+#a = "suspects" a.prepend("the usual ") will add suspects to the end of the original string
+
+p "the usual" + " suspects".to_s
+p "the usual".ljust(18, " suspects")
+a = "suspects"
+p a.prepend("the usual ")
+
 #=> "the usual suspects"
 
-# " suspects".<???>
+# " suspects".rjust(18, "the usual") makes the string equal to 18 characters and adds the usual to the right of the original string
+p " suspects".rjust(18, "the usual")
+
 # => "the usual suspects"
 
 # "The case of the disappearing last letter".<???>
