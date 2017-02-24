@@ -8,9 +8,9 @@
 p "iNvEsTiGaTiOn".swapcase
 # => “InVeStIgAtIoN”
 
-# "zom".<???>
+# "zom".insert (2,"o") will insert a o into the second space of the string.
 # => “zoom”
-
+p "zom".insert(2, "o")
 # "enhance".<???>
 # => "    enhance    "
 
@@ -37,16 +37,26 @@ p " suspects".rjust(18, "the usual")
 
 # "The case of the disappearing last letter".<???>
 # => "The case of the disappearing last lette"
+p "The case of the disappearing last letter".chop
+p "The case of the disappearing last letter".chomp("r")
 
 # "The mystery of the missing first letter".<???>
+p "The mystery of the missing first letter".sub("T", "")
+p "The mystery of the missing first letter"[1..-1]
+
 # => "he mystery of the missing first letter"
 
 # "Elementary,    my   dear        Watson!".<???>
+p "Elementary,    my   dear        Watson!".squeeze(" ")
 # => "Elementary, my dear Watson!"
 
 # "z".<???>
+p "z".ord
 # => 122 
 # (What is the significance of the number 122 in relation to the character z?)
-
+# The .ord method returns the position of z on the ASCII table.
 # "How many times does the letter 'a' appear in this string?".<???>
+p "How many times does the letter 'a' appear in this string?".count("a")
+
 # => 4
+
