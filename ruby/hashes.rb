@@ -34,19 +34,42 @@ client_design_preference[:name] = gets.chomp.capitalize
 
 puts "Please double check the name you entered. If \"#{client_design_preference[:name]}\" is correct, type \"yes\", if the name is incorrect, type \"no\"."
 correct_name = gets.chomp
-	if correct_name == "yes"
+	if correct_name == "yes" || correct_name == "Yes"
 		client_design_preference[:name]
-	elsif correct_name	== "no"
-		puts " Please re-enter client's name."
+	elsif correct_name	== "no" || correct_name == "No"
+		puts "Please re-enter client's name."
 		client_design_preference[:name] = gets.chomp.capitalize
 	else
-		puts "I do not understand. Please try again."
+		puts "I do not understand. Please start over."
 	end 
 
 puts "What is the address of \"#{client_design_preference[:name]}\"?"
 client_design_preference[:address] = gets.chomp
-puts "Please double check the address you enterd. If it \"#{client_design_preference[:address]}\" is correct, type \"yes\", if the address is incorrect, type \"no\"."
-	if correct_address == "yes"
-		client_design_preference[:address]
-	
 
+puts "Please double check the address you enterd. If it \"#{client_design_preference[:address]}\" is correct, type \"yes\", if the address is incorrect, type \"no\"."
+correct_address = gets.chomp
+	if correct_address == "yes" || correct_address == "Yes"
+		client_design_preference[:address]
+	elsif correct_address == "no" || correct_address == "No"
+		puts "Please re-enter client's adress."
+		client_design_preference[:address] = gets.chomp
+	else
+		puts "I do not understand. Please start over."
+	end
+
+puts "What is the age of \"#{client_design_preference[:name]}\?"
+client_design_preference[:age] == gets.to_i
+
+puts "Do you have any children? (yes or no)"
+children = gets.chomp
+	if children == "yes"
+		puts "How many children?"
+		client_design_preference[:children] = gets.to_i
+	elsif children == "no"
+		puts "Oh...okay."
+		client_design_preference[:children] = 0
+	else
+		puts "I do not understand. Please start over."
+	end
+
+	p client_design_preference
