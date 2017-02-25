@@ -44,4 +44,9 @@ correct_name = gets.chomp
 	end 
 
 puts "What is the address of \"#{client_design_preference[:name]}\"?"
+client_design_preference[:address] = gets.chomp
+puts "Please double check the address you enterd. If it \"#{client_design_preference[:address]}\" is correct, type \"yes\", if the address is incorrect, type \"no\"."
+	if correct_address == "yes"
+		client_design_preference[:address]
+	
 
