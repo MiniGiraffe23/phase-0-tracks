@@ -12,14 +12,14 @@ Be sure to pseudocode, and leave your pseudocode in as comments.
 
 client_design_preference = {
 
-	name: " ",
-	address: " ",
-	age: " ",
-	number_of_children: " ",
-	spend_amount: " ",
-	decor_theme: " ",
-	prefered_stores: " ",
-	favorite_colors: " "
+	name: "N/A ",
+	address: "N/A",
+	age: "N/A",
+	number_of_children: "N/A",
+	spend_amount: "N/A",
+	decor_theme: "N/A",
+	prefered_stores: "N/A",
+	favorite_colors: "N/A"
 
 }
 
@@ -29,7 +29,7 @@ puts "Please answer the following questions about your client."
 
 
 puts "What is your client's full name?"
-client_design_preference[:name] = gets.chomp.capitalize
+client_design_preference[:name] = gets.chomp
 
 puts "Please double check the name you entered. If \"#{client_design_preference[:name]}\" is correct, type \"yes\", if the name is incorrect, type \"no\"."
 correct_name = gets.chomp
@@ -37,7 +37,7 @@ correct_name = gets.chomp
 		client_design_preference[:name]
 	elsif correct_name	== "no" || correct_name == "No"
 		puts "Please re-enter client's name."
-		client_design_preference[:name] = gets.chomp.capitalize
+		client_design_preference[:name] = gets.chomp
 	else
 		puts "I do not understand. Please start over."
 	end 
@@ -57,16 +57,16 @@ correct_address = gets.chomp
 	end
 
 puts "What is the age of \"#{client_design_preference[:name]}\"?"
-client_design_preference[:age] == gets.to_i
+client_design_preference[:age] = gets.to_i
 
 puts "Does \"#{client_design_preference[:name]}\" have any children? (yes or no)"
 children = gets.chomp
 	if children == "yes"
 		puts "How many children?"
-		client_design_preference[:children] = gets.to_i
+		client_design_preference[:number_of_children] = gets.chomp.to_i
 	elsif children == "no"
 		puts "Oh...okay."
-		client_design_preference[:children] = 0
+		client_design_preference[:number_of_children] = 0
 	else
 		puts "I do not understand. Please start over."
 	end
@@ -87,7 +87,7 @@ puts "Please enter the decor theme \"#{client_design_preference[:name]}\" has ch
 client_design_preference[:decor_theme] = gets.chomp
 
 puts "Please list your client's prefered store. (type 'none' if your client doesn't have one)"
-client_design_preference[:prefered_stores]
+client_design_preference[:prefered_stores] = gets.chomp
 
 puts "Enter your client's favorite colors:"
 arr_colors = []
@@ -116,8 +116,8 @@ until colors == "done"
 end
 
 
-
 p client_design_preference
+
 
 
  
