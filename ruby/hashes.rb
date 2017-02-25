@@ -57,10 +57,10 @@ correct_address = gets.chomp
 		puts "I do not understand. Please start over."
 	end
 
-puts "What is the age of \"#{client_design_preference[:name]}\?"
+puts "What is the age of \"#{client_design_preference[:name]}\"?"
 client_design_preference[:age] == gets.to_i
 
-puts "Do you have any children? (yes or no)"
+puts "Does \"#{client_design_preference[:name]}\" have any children? (yes or no)"
 children = gets.chomp
 	if children == "yes"
 		puts "How many children?"
@@ -72,4 +72,17 @@ children = gets.chomp
 		puts "I do not understand. Please start over."
 	end
 
-	p client_design_preference
+puts "Does \"#{client_design_preference[:name]}\" have a budget? (yes or no"
+budget = gets.chomp
+	if budget == "yes"
+		puts "What is the max amount he/she wants to spend?"
+		client_design_preference[:spend_amount] = gets.chomp
+	elsif budget == "no" 
+		puts "Awesome! Let's go crazy!"
+		client_design_preference[:spend_amount] = "Limitless!"
+	else
+		puts "I do not understand. Please start over."
+	end
+
+
+		
