@@ -10,6 +10,7 @@ Print the latest version of the hash, and exit the program.
 Be sure to pseudocode, and leave your pseudocode in as comments.
 =end
 
+#initialize hash
 client_design_preference = {
 
 	name: "N/A ",
@@ -23,6 +24,7 @@ client_design_preference = {
 
 }
 
+#Introduce program to user and prompt them for input
 puts "Welcome to your client design organizer."
 puts "Here you can store all your data about various clients, and I will keep it nice and organized for you."
 puts "Please answer the following questions about your client."
@@ -33,7 +35,7 @@ client_design_preference[:name] = gets.chomp
 
 puts "Please double check the name you entered. If \"#{client_design_preference[:name]}\" is correct, type \"yes\", if the name is incorrect, type \"no\"."
 correct_name = gets.chomp
-	if correct_name == "yes" || correct_name == "Yes"
+	if correct_name == "yes" || correct_name == "Yes" #convert to boolean
 		client_design_preference[:name]
 	elsif correct_name	== "no" || correct_name == "No"
 		puts "Please re-enter client's name."
@@ -57,7 +59,7 @@ correct_address = gets.chomp
 	end
 
 puts "What is the age of \"#{client_design_preference[:name]}\"?"
-client_design_preference[:age] = gets.to_i
+client_design_preference[:age] = gets.to_i #convert to integer
 
 puts "Does \"#{client_design_preference[:name]}\" have any children? (yes or no)"
 children = gets.chomp
@@ -74,8 +76,8 @@ children = gets.chomp
 puts "Does \"#{client_design_preference[:name]}\" have a budget? (yes or no)"
 budget = gets.chomp
 	if budget == "yes"
-		puts "What is the max amount he/she wants to spend?"
-		client_design_preference[:spend_amount] = gets.chomp
+		puts "What is the max amount he/she wants to spend (nubmers only)?"
+		client_design_preference[:spend_amount] = gets.to_f #convert to digit that allows decimals
 	elsif budget == "no" 
 		puts "Awesome! Let's go crazy!"
 		client_design_preference[:spend_amount] = "Limitless!"
@@ -90,7 +92,7 @@ puts "Please list your client's prefered store. (type 'none' if your client does
 client_design_preference[:prefered_stores] = gets.chomp
 
 puts "Enter your client's favorite colors:"
-arr_colors = []
+arr_colors = [] #begin array to allow the user to input more than one color
 x = 0
 colors = ""
 until colors == "done"
@@ -110,14 +112,76 @@ until colors == "done"
     arr_colors << client_design_preference[:fav_colors]
     client_design_preference[:favorite_colors] = arr_colors
   else
-    puts "I don't understand. Please type done or enter another."
+    puts "I don't understand. Please type done or enter another color."
   end
   x += 1
 end
 
 
-p client_design_preference
+puts "Looks like you've answered all the questions."
+print client_design_preference #print exisiting hash data
 
+#Prompt user to review the above date and make any necessary changes
+puts "Please review the above info. If you would like to make any changes, please enter the corresponding field: name, address, age, number of children, spend amount, decor theme, prefered stores or favorite colors. (If no changes are needed, please type 'none'.) "
+change_needed = gets.chomp 
+
+until change_needed == "none"
+	puts "Are there any more changes? If no, type 'none'."
+	change_needed = gets.chomp
+  if change_needed == "name"
+	puts "What is the new name?"
+	client_design_preference[:name] = gets.chomp
+  elsif change_needed == "address"
+  	puts "What is the new address?"
+  	client_design_preference[:address] = gets.chomp
+  elsif change_needed == "age"
+  	puts "Please enter the correct age."
+  	client_design_preference[:age] = gets.to_i
+  elsif change_needed == "number of children"
+  	puts "Please enter the correct number of children."
+  	client_design_preference[:number_of_children] = gets.to_i
+  elsif change_needed == "spend amount"
+  	puts "What is the new spend amount (numbers only)?"
+  	client_design_preference[:spend_amount] = gets.to_f
+  elsif change_needed == "decor theme"
+  	puts "What is the client's new decor theme?"
+  	client_design_preference[:decor_theme] = gets.chomp
+  elsif change_needed == "prefered stores"
+  	puts "What is the client's new store preference?"
+  	client_design_preference[:prefered_stores] = gets.chomp
+  elsif change_needed == "favorite colors"
+  	puts "Please enter their new color preferences."
+  	arr_colors = []
+  	colors = nil 
+		until colors == "done"
+			puts "Please enter a color."
+			client_design_preference[:favorite_colors] = gets.chomp
+			puts "Do you need to enter another color? If so, type 'yes'. If not, type 'done'."
+			colors = gets.chomp
+  		  if colors == "yes"
+  		  	arr_colors << client_design_preference[:favorite_colors] 
+  		  	client_design_preference[:favorite_colors] = arr_colors
+   	 	  elsif colors == "done"
+  			arr_colors << client_design_preference[:favorite_colors] 
+  			client_design_preference[:favorite_colors] = arr_colors
+  			puts "Thank you. We are done with colors."
+  		  else 
+  			puts "I do not understand. Please start over."
+  		  end
+		end
+	elsif change_needed == "none"
+		puts "Looks like we're all finished here."
+	else 
+		puts "I don't understand. Please start over."
+	end	
+end
+
+puts " "
+puts " "
+
+puts "All done! Here are your results:"
+#print hash one last time before exiting to verify all changes have been made (if any were needed)
+puts client_design_preference
 
 
  
