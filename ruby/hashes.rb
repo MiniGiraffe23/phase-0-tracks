@@ -19,8 +19,7 @@ client_design_preference = {
 	spend_amount: " ",
 	decor_theme: " ",
 	prefered_stores: " ",
-	favorite_colors: " ",
-	paint_preference: " ",
+	favorite_colors: " "
 
 }
 
@@ -72,7 +71,7 @@ children = gets.chomp
 		puts "I do not understand. Please start over."
 	end
 
-puts "Does \"#{client_design_preference[:name]}\" have a budget? (yes or no"
+puts "Does \"#{client_design_preference[:name]}\" have a budget? (yes or no)"
 budget = gets.chomp
 	if budget == "yes"
 		puts "What is the max amount he/she wants to spend?"
@@ -84,5 +83,41 @@ budget = gets.chomp
 		puts "I do not understand. Please start over."
 	end
 
+puts "Please enter the decor theme \"#{client_design_preference[:name]}\" has chosen."
+client_design_preference[:decor_theme] = gets.chomp
 
-		
+puts "Please list your client's prefered store. (type 'none' if your client doesn't have one)"
+client_design_preference[:prefered_stores]
+
+puts "Enter your client's favorite colors:"
+arr_colors = []
+x = 0
+colors = ""
+until colors == "done"
+  puts "Please list a color:"
+  client_design_preference[:favorite_colors] = gets.chomp
+  puts "If \"#{client_design_preference[:favorite_colors]}\" is correct type \"y\", if not type \"n\" to re-enter. (type \"done\" when finished listing)"
+  colors = gets.chomp
+  if colors == "y" || colors == "Y"
+    arr_colors << client_design_preference[:favorite_colors]
+    client_design_preference[:favorite_colors] = arr_colors
+  elsif colors == "n" || colors == "N"
+    puts "What is the correct color:"
+    client_design_preference[:favorite_colors] = gets.chomp
+    arr_colors[x] = client_design_preference[:favorite_colors]
+    client_design_preference[:favorite_colors] = arr_colors
+  elsif colors == "done" || colors == "Done"
+    arr_colors << client_design_preference[:fav_colors]
+    client_design_preference[:favorite_colors] = arr_colors
+  else
+    puts "I don't understand. Please type done or enter another."
+  end
+  x += 1
+end
+
+
+
+p client_design_preference
+
+
+ 
