@@ -121,12 +121,15 @@ end
 puts "Looks like you've answered all the questions."
 print client_design_preference #print exisiting hash data
 
+puts " "
+puts " "
+
 #Prompt user to review the above date and make any necessary changes
-puts "Please review the above info. If you would like to make any changes, please enter the corresponding field: name, address, age, number of children, spend amount, decor theme, prefered stores or favorite colors. (If no changes are needed, please type 'none'.) "
-change_needed = gets.chomp 
+puts "Please review the above info. If you would like to make any changes, please enter the corresponding field: name, address, age, number of children, spend amount, decor theme, prefered stores or favorite colors. (If no changes are needed, please type 'none'.)"
+change_needed = nil
 
 until change_needed == "none"
-	puts "Are there any more changes? If no, type 'none'."
+	puts "Any more changes? If so, please type the corresponding field. If no more changes are needed, please type 'none'."
 	change_needed = gets.chomp
   if change_needed == "name"
 	puts "What is the new name?"
