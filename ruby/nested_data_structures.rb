@@ -15,7 +15,30 @@
 #What will we need:
 #Zoo name, different exhibit names within the zoo, animals/attractions within those exhibits
 
-Birdybuns_Zoo = {
+birdybuns_zoo = {
 
-	Fascinating_Reptiles: 	}
+	reptiles: {
+		exhibit_name: "Magnificent Reptiles",
+		reptile_info: 6,
+		reptile_names: [
+			"Scaley",
+			"Slippery Joe",
+			"Bob the Boa",
+			"Curly Sue",
+			"Demon Eyes",
+			"Silent Moe"
+		]
+	}
 }
+
+=begin	},	
+
+	giraffes:
+
+	tigers:
+
+	primates: 
+}
+=end
+
+p birdybuns_zoo[:reptiles][:reptile_names]
