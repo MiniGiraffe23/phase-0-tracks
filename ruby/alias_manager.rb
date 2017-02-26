@@ -30,7 +30,7 @@ def spy_name_generator(real_name)
 	real_name
 end
 	
-def spy_name_swap(real_name)
+def spy_name_swap(real_name) #will change any vowel to the next vowel in the vowel sequence and any consonant to the next consonant"
 
 	vowels = "aeiou".chars #will break the string into individual characters 
 	consonants = "bcdfghjklmnpqrstvwxyz".chars
@@ -42,7 +42,7 @@ def spy_name_swap(real_name)
 			real_name[letters] = vowels[vowels.index(real_name[letters]) + 1]
 			else
 				if consonants.index(real_name[letters]) != nil
-					real_name[letters] = consonants[consonants.index(real_name[letters]) + 1]
+					real_name[letters] = consonants[consonants.index(real_name[letters]) + 1] #tells the progam that for any consonant in the person's original name, swap it with the next consonant in the alphabet
 				else 
 					puts " "
 				end
