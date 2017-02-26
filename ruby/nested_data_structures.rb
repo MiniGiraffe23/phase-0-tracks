@@ -17,6 +17,12 @@
 
 birdybuns_zoo = {
 
+	exhibits: [
+		"Magnificient Reptiles",
+		"Gallant Giraffes",
+		"Ferocious Felines"
+		],
+
 	reptiles: {
 		exhibit_name: "Magnificent Reptiles",
 		reptile_count: 6,
@@ -49,9 +55,42 @@ birdybuns_zoo = {
 				"Jean"
 			]
 		}		
+	},
+	tigers: {
+		exhibit_name: "Ferocious Felines",
+		tiger_info: {
+			tiger_count: 4,
+			tiger_types: [
+				"Bengal",
+				"Sumatran",
+				"Malayan"
+			]
+		},
+		tiger_names: {
+			"Bengal" => "Lucy",
+			"Sumatran" => ["Fierce Kitty", "Tito"],
+			"Malayan" => "Hank"
+
+		}
 	}
 }
-	
-p birdybuns_zoo[:giraffes][:giraffe_names][:sick_giraffes]
 
-#p birdybuns_zoo[:reptiles][:reptile_names]
+#Tests ran thorughout building data structure to make sure it continued to work as new parts were added
+#p birdybuns_zoo[:tigers][:tiger_names]["Sumatran"] worked perfectly 
+#p birdybuns_zoo[:tigers][:tiger_info][:tiger_types] just a test
+#p birdybuns_zoo[:giraffes][:giraffe_names][:sick_giraffes] just a test
+#p birdybuns_zoo[:reptiles][:reptile_names] just a test
+puts "Welcome to Birdybun's Zoo!"
+
+puts "Some of our exhibits include: \"#{birdybuns_zoo[:exhibits]}\"."
+
+puts " \"#{birdybuns_zoo[:tigers][:tiger_info][:tiger_types].last}\" is one type of tiger you will see in the Ferocious Felines Exhibit!"
+puts "Our \"#{birdybuns_zoo[:tigers][:exhibit_name]}\" Exhibit is home to \"#{birdybuns_zoo[:tigers][:tiger_info][:tiger_count]}\" tigers!"
+puts "Their types and names are \"#{birdybuns_zoo[:tigers][:tiger_names]}\"."
+
+puts ""
+puts ""
+
+puts "Our \"#{birdybuns_zoo[:giraffes][:exhibit_name]}\" Exhibit is home to \"#{birdybuns_zoo[:giraffes][:giraffe_names][:giraffes_on_display]}\" who are on display, and \"#{birdybuns_zoo[:giraffes][:giraffe_names][:sick_giraffes]}\" who are currently out sick :-( !"
+
+puts "Please continue to look around and let us know if you have any questions! Thanks for visiting the zoo today!"
