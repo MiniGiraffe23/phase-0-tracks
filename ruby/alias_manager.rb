@@ -61,13 +61,11 @@ def full_name
 #loop until person hits done, which allows them to convert multiple names without having to restart the program.
 		until name == "done"
 			name = gets.chomp
-			new_name = spy_name_generator(spy_name_swap(name))
-			puts new_name
+			new_name = spy_name_generator(spy_name_swap(name)) #runs the name someone enters through the first name generator that flips first and last name then through the swap generator that swaps characters around
+			p new_name
 			yield(name, new_name)
-				if name == "done" #needed to add if statement w break so program would know 'done' should not be ran through the spy_name_generator.
+				if name == true #needed to add if statement w break so program would know 'done' should not be ran through the spy_name_generator. Doesn't work. Not sure what to do. 
 					break
-				else
-					name = gets.chomp
 				end
 		end
 end
