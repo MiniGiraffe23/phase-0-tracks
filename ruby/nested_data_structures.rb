@@ -19,7 +19,7 @@ birdybuns_zoo = {
 
 	reptiles: {
 		exhibit_name: "Magnificent Reptiles",
-		reptile_info: 6,
+		reptile_count: 6,
 		reptile_names: [
 			"Scaley",
 			"Slippery Joe",
@@ -28,17 +28,30 @@ birdybuns_zoo = {
 			"Demon Eyes",
 			"Silent Moe"
 		]
+	},	
+#p birdybuns_zoo[:reptiles][:reptile_names] test during bulding to show that nested data could be called
+
+	giraffes: {
+		exhibit_name: "Gallant Giraffes",
+		giraffe_info: {
+			total_giraffe: 6,
+			giraffe_sick: 2,
+		},
+		giraffe_names: {
+			giraffes_on_display: [
+				"Betty",
+				"Norman",
+				"Long-neck John",
+				"Bean"
+			],
+			sick_giraffes: [
+				"Billy Bob",
+				"Jean"
+			]
+		}		
 	}
 }
+	
+p birdybuns_zoo[:giraffes][:giraffe_names][:sick_giraffes]
 
-=begin	},	
-
-	giraffes:
-
-	tigers:
-
-	primates: 
-}
-=end
-
-p birdybuns_zoo[:reptiles][:reptile_names]
+#p birdybuns_zoo[:reptiles][:reptile_names]
