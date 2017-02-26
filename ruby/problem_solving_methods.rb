@@ -87,7 +87,8 @@ end
 
 p number_sort(number_array)
 
-
+#complete with Jone Saukitoga - definitely a tough assignment..understanding this alorithm made my head hurt :) and I thought we had done it completely
+#wrong but when we tested it everything worked just fine!
 
 
 
