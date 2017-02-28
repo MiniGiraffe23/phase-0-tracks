@@ -93,4 +93,8 @@ puts ""
 
 puts "Our \"#{birdybuns_zoo[:giraffes][:exhibit_name]}\" Exhibit is home to \"#{birdybuns_zoo[:giraffes][:giraffe_names][:giraffes_on_display]}\" who are on display, and \"#{birdybuns_zoo[:giraffes][:giraffe_names][:sick_giraffes]}\" who are currently out sick :-( !"
 
+puts ""
+
+puts "Here is our \"#{birdybuns_zoo[:exhibits][0]}\" Exhibit! Here you'll find \"#{birdybuns_zoo[:reptiles][:reptile_names]}\"."
 puts "Please continue to look around and let us know if you have any questions! Thanks for visiting the zoo today!"
+
