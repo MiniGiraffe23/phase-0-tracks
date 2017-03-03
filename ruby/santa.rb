@@ -5,10 +5,15 @@
 #---- Initialize: prints "Initializing Santa instance..."
 #Add code below class declaration to check initialize instance and methods work
 
+
 class Santa
+	def about
+		puts "Gender: #{@gender}"
+		puts "Ethnicity: #{@ethnicity}"
+	end
 
 	def initialize(gender, ethnicity)
-		puts "Initializing Santa instance..."
+		
 	#instance variable give state data
 	#available anywhere inside any instance method of a class
 	#these are attributes
@@ -17,8 +22,7 @@ class Santa
 		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", 
 			"Comet", "Cupid", "Donner", "Blitzen"]
 		@age = 0
-
-		Santa
+		puts "Initializing Santa instance..."
 	end
 
 	def speak
@@ -31,12 +35,32 @@ class Santa
 		cookie_type
 	end
 
-	def about
-		puts "Name: #{@name}"
-		puts "Location: #{location}"
 
 end
+
+santas = []
+
+genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+ethnicities = ['black', 'white', 'latino', 'Japanese', 'Korean', 'prefer not to say', 'Unicorn', 'Butterfly', 'N/A']
+
+
+2.times do |make_santas|
+	santas << Santa.new((genders).sample, (ethnicities).sample)
+	p make_santas
+end
+
+ben = Santa.new("bigender", "white")
+ben.about
+ben.speak
+ben.eat_milk_and_cookies("Peanut Butter")
+
+
+
+
+
+
 #DRIVE CODE
 #mike = Santa.new("")
 #mike.speak
 #mike.eat_milk_and_cookies("chocolate chip")
+
