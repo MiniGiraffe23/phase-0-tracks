@@ -16,6 +16,8 @@ class TodoList
 	end
 
 	def delete_item(item)
+		@array.delete(item)
+	end
 end
 
  #list = TodoList.new #add a parameter
