@@ -9,7 +9,7 @@
 class Santa
 	#interface to make instance variables available outside method
 	attr_reader :ethnicity, :name
-	attr_accessor :gender, :age #give both getter and setter
+	attr_accessor :gender, :age, :reindeer_ranking #give both getter and setter
 	#attr_writer - makes it writable but not readable
 
 	def initialize(gender, ethnicity, name)
@@ -29,6 +29,7 @@ class Santa
 		puts "Gender: #{@gender}"
 		puts "Ethnicity: #{@ethnicity}"
 		puts "Age: #{@age}"
+		puts "Name: #{@name}"
 	end
 
 	def speak
@@ -50,9 +51,10 @@ class Santa
 	end
 
 	def get_mad_at(reindeer)
+
 		@reindeer_ranking.delete(reindeer)
 		@reindeer_ranking.push(reindeer)
-		puts @reindeer_ranking
+		p @reindeer_ranking
 	end
 =begin
 #setter methods
@@ -66,15 +68,17 @@ end
 
 genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
 ethnicities = ['black', 'white', 'latino', 'Japanese', 'Korean', 'prefer not to say', 'Unicorn', 'Butterfly', 'N/A']
-names = ["Ben", "Tom", "Jodi", "Jolly Muffin Eater", "Evil Santa", "Rocker Santa"]
-
-	200.times do |make_santas|
+names = ["Ben", "Tom", "Frodo", "Vigo", "Jodi", "Sam", "Mad Max", "Bilbo", "Jolly Muffin Eater", "Evil Santa", "Rocker Santa", "Glitter Fairy", "Legalos", "Gandolf the Jolly"]
+reindeer = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", 
+			"Comet", "Cupid", "Donner", "Blitzen"]
+	1000.times do |make_santas|
 		make_santas = Santa.new(genders.sample, ethnicities.sample, names.sample)
+		make_santas.get_mad_at(reindeer.sample) #make code take random reindeer name to run through gets_mad_at so all Santas don't have the same reindeer order; will display original ranking and then altered ranking
 		p make_santas
 	end
+#hehe, 1000 santas.
 
-
-=begin TEST CODE
+=begin EARLIER TEST CODE
 ben = Santa.new("bigender", "white")
 ben.about
 ben.speak
@@ -94,5 +98,14 @@ puts
 ben.get_mad_at("Dasher")
 =end
 
+=begin
+More Test Code
 
-
+bilbo = Santa.new("male", "latino", "Bilbo")
+bilbo.about
+bilbo.speak
+bilbo.eat_milk_and_cookies("Fudge")
+bilbo.get_mad_at("Dasher")
+bilbo.celebrate_birthday
+bilbo.gender = "female"
+=end
