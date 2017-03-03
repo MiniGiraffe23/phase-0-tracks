@@ -7,22 +7,28 @@
 
 
 class Santa
-	def about
-		puts "Gender: #{@gender}"
-		puts "Ethnicity: #{@ethnicity}"
-	end
+	#interface to make instance variables available outside method
+	attr_reader :ethnicity, :name
+	attr_accessor :gender, :age #give both getter and setter
+	#attr_writer - makes it writable but not readable
 
-	def initialize(gender, ethnicity)
-		
+	def initialize(gender, ethnicity, name)
+		puts "Initializing Santa instance..."
 	#instance variable give state data
 	#available anywhere inside any instance method of a class
 	#these are attributes
+		@name = name
 		@gender = gender 
 		@ethnicity = ethnicity
 		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", 
 			"Comet", "Cupid", "Donner", "Blitzen"]
-		@age = 0
-		puts "Initializing Santa instance..."
+		@age = rand(0..140)
+	end
+
+	def about
+		puts "Gender: #{@gender}"
+		puts "Ethnicity: #{@ethnicity}"
+		puts "Age: #{@age}"
 	end
 
 	def speak
@@ -34,33 +40,59 @@ class Santa
 		puts "That was a good #{cookie_type} cookie!"
 		cookie_type
 	end
+#Initial Test Code
+#mike = Santa.new("")
+#mike.speak
+#mike.eat_milk_and_cookies("chocolate chip")
 
+	def celebrate_birthday
+		@age += 1
+	end
+
+	def get_mad_at(reindeer)
+		@reindeer_ranking.delete(reindeer)
+		@reindeer_ranking.push(reindeer)
+		puts @reindeer_ranking
+	end
+=begin
+#setter methods
+#able to change from outside the class
+	def gender=(new_gender)
+		@gender = new_gender
+	end
+=end
 
 end
-
-santas = []
 
 genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
 ethnicities = ['black', 'white', 'latino', 'Japanese', 'Korean', 'prefer not to say', 'Unicorn', 'Butterfly', 'N/A']
+names = ["Ben", "Tom", "Jodi", "Jolly Muffin Eater", "Evil Santa", "Rocker Santa"]
+
+	200.times do |make_santas|
+		make_santas = Santa.new(genders.sample, ethnicities.sample, names.sample)
+		p make_santas
+	end
 
 
-2.times do |make_santas|
-	santas << Santa.new((genders).sample, (ethnicities).sample)
-	p make_santas
-end
-
+=begin TEST CODE
 ben = Santa.new("bigender", "white")
 ben.about
 ben.speak
 ben.eat_milk_and_cookies("Peanut Butter")
+#make instance variables readable
+#getter methods 
+ben.gender = "female"
+puts "#{ben.gender} is fun"
+
+ben.celebrate_birthday
+
+p ben.age
+ben.get_mad_at("Rudolph")
+puts
+ben.get_mad_at("Blitzen")
+puts
+ben.get_mad_at("Dasher")
+=end
 
 
-
-
-
-
-#DRIVE CODE
-#mike = Santa.new("")
-#mike.speak
-#mike.eat_milk_and_cookies("chocolate chip")
 
