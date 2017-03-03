@@ -7,8 +7,17 @@
 
 class Santa
 
-	def initialize
+	def initialize(gender, ethnicity)
 		puts "Initializing Santa instance..."
+	#instance variable give state data
+	#available anywhere inside any instance method of a class
+	#these are attributes
+		@gender = gender 
+		@ethnicity = ethnicity
+		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", 
+			"Comet", "Cupid", "Donner", "Blitzen"]
+		@age = 0
+
 		Santa
 	end
 
@@ -22,8 +31,12 @@ class Santa
 		cookie_type
 	end
 
+	def about
+		puts "Name: #{@name}"
+		puts "Location: #{location}"
+
 end
 #DRIVE CODE
-#mike = Santa.new
+#mike = Santa.new("")
 #mike.speak
 #mike.eat_milk_and_cookies("chocolate chip")
