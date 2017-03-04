@@ -25,11 +25,11 @@ puts Shout.yell_happily("YAAAAY... You did it")
 
 module Shout
 	def yell_angrily(words)
-		words + "!!!" + " :-O "
+		p words + "!!!" + " (>_<) "
 	end
 
 	def yell_happily(words)
-		words + "!!!" + " :-D "
+		p words + "!!!" + " :-D "
 	end
 end
 
