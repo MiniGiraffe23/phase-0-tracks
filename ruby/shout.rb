@@ -2,6 +2,9 @@
 
 #Declare shout method
 module Shout
-	#will add methods later
+	#define method for yelling angrily
+	def self.yell_angrily(words)
+		words + "!!!" + " :( "
+	end
 end
 
