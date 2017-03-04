@@ -1,3 +1,4 @@
+=begin 6.4: RELEASE ONE
 #Write a shout module
 #--modules can be used across multiple classes
 #Declare shout module
@@ -15,7 +16,30 @@ end
 
 puts Shout.yell_angrily("Grrr... Why'd you do that")
 puts Shout.yell_happily("YAAAAY... You did it")
+=end
 
+# ----6.4: RELEASE 3 ----
+#Make mixin version of the Shout module 
+#Create two classes representing anything that might shout
+#Include Shout module in the two classes
+
+module Shout
+	def yell_angrily(words)
+		words + "!!!" + " :-O "
+	end
+
+	def yell_happily(words)
+		words + "!!!" + " :-D "
+	end
+end
+
+class Person
+	include Shout
+end
+
+class Monster
+	include Shout
+end
 
 
 
