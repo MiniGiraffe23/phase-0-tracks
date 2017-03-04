@@ -11,9 +11,19 @@ module Flight
 end
 
 class Bird
+	include Flight #pulls in flight module declared above
 end
 
 class Plane
+	include Flight
 end
 
- 
+
+#DRIVER CODE
+
+bird = Bird.new
+bird.take_off(800)
+
+plane = Plane.new
+plane.take_off(3000)
+ #mixin modules do not require self keyword, modules can be defined the same way we write instance methods in a class
