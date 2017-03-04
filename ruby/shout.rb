@@ -42,7 +42,13 @@ class Monster
 end
 
 
+betty = Person.new
+betty.yell_angrily("Ouch! That really hurt")
+betty.yell_happily("HAHAH")
 
+monster = Monster.new
+monster.yell_angrily("Grrr")
+monster.yell_happily("Yes! I get to eat you")
 
 
 
