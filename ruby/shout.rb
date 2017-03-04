@@ -52,10 +52,6 @@ monster.yell_happily("Yes! I get to eat you")
 
 
 
-
-
-
-
 =begin
 --RESEARCH ON SELF KEYWORD--
 Three golden rules:
