@@ -22,10 +22,10 @@ class Santa
 		@ethnicity = ethnicity
 		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", 
 			"Comet", "Cupid", "Donner", "Blitzen"]
-		@age = rand(0..140)
+		@age = rand(0..140) #picks a random number from 0 to 140 
 	end
 
-	def about
+	def about	
 		puts "Gender: #{@gender}"
 		puts "Ethnicity: #{@ethnicity}"
 		puts "Age: #{@age}"
@@ -37,7 +37,7 @@ class Santa
 	end
 
 
-	def eat_milk_and_cookies(cookie_type)
+	def eat_milk_and_cookies(cookie_type) #takes cookie type returns in sentence 
 		puts "That was a good #{cookie_type} cookie!"
 		cookie_type
 	end
@@ -46,11 +46,11 @@ class Santa
 #mike.speak
 #mike.eat_milk_and_cookies("chocolate chip")
 
-	def celebrate_birthday
+	def celebrate_birthday 
 		@age += 1
 	end
 
-	def get_mad_at(reindeer)
+	def get_mad_at(reindeer) #method that takes a reindeer name and deletes it from current position then pushes it to end of the list
 
 		@reindeer_ranking.delete(reindeer)
 		@reindeer_ranking.push(reindeer)
@@ -71,6 +71,8 @@ ethnicities = ['black', 'white', 'latino', 'Japanese', 'Korean', 'prefer not to 
 names = ["Ben", "Tom", "Frodo", "Vigo", "Jodi", "Sam", "Mad Max", "Bilbo", "Jolly Muffin Eater", "Evil Santa", "Rocker Santa", "Glitter Fairy", "Legalos", "Gandolf the Jolly"]
 reindeer = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", 
 			"Comet", "Cupid", "Donner", "Blitzen"]
+#add reindeer array so below loop can take a random reindeer name and run through the get_mad_at method
+
 	1000.times do |make_santas|
 		make_santas = Santa.new(genders.sample, ethnicities.sample, names.sample)
 		make_santas.get_mad_at(reindeer.sample) #make code take random reindeer name to run through gets_mad_at so all Santas don't have the same reindeer order; will display original ranking and then altered ranking
