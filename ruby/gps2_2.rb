@@ -74,3 +74,28 @@ def print_list(grocery_list)
 end
 
 print_list(list)
+
+
+=begin
+-----REFLECTION-----
+1. The pseudocode is definitely helpful in that it sets out a basic plan of attack for how you want your code to flow, what the input should be
+and what you wnat your output to be. When you actually start defining your methods it is actually easier to 
+write your code and tackle it piece by piece instead of making one giant hot mess on your page.
+
+2. Arrays are good for holding lists of datas, and hashes are also good for holding lists of data but allow you to assign/link additional information
+to the individual items in your list. Here we used an array to only to store strings of our items once we had split
+the initial string that was fed into our method. We then pushed the items into a hash and assigned a default value of 1 to each.
+A hash to store the full list is more effective because it allowed us to associated each item with a quantity that we could change or manipulate 
+by using the key or value.
+
+3. A method returns an object (string, boolean, integer), but somtimes it will retun nil. 
+4. Methods can take the follwoing as arguments: Variables, strings, integers, block methods, default values, an array of values (by using the splat operator).
+
+5. Methods can be passed to other methods as a parameter or block.  
+
+6. I still didn't quite understand the difference between using p and return, now I understand that p returns and prints the value and return just returns the value. 
+I learned about gems which was a good bonus and also learned about the guard clause, a conditional statement
+at the top of a function that will end the method if certain conditions aren't meant. We used it on line 56 in our update item method. 
+If someone lists an item that isn't already on the list, the method will end and retun nil because the condition of that item already being on our
+grocery list wasn't met.  
+I also solidified my understadning of hashes and arrays and when each should be used. 
