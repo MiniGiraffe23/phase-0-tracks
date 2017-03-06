@@ -1,15 +1,18 @@
-## Define Game class
-## Define initialize method
+#Word guessing game - like Hangman
+#Driver code handles all user input and output (all user interaction done throug UI)
+# Define Game class
+# Define initialize method
+# Define print_word method
 # input: takes a string (one word) that user inputs
 # steps: 
 	# split words into individual characters
 	# return input word as blank spaces
-	# Keep track of user's guesses (store in array)
-	# number of guesses equals the length of the word
-		# same guess does not count against the user
 # output: word split into separate characters and returned as blank spaces
 
-## Method to store guessed letters
+## Method to store guessed letters and keep track of gueses
+# Keep track of user's guesses (store in array) - can't get to work
+	# number of guesses equals the length of the word
+	# same guess does not count against the user - need array or hash to get this to work
 # input: letters guessed by user 2
 # steps: add guessed letter to guess array
 # output: updated array
@@ -39,21 +42,35 @@
 #Gets user input of one word from player one
 #Asks player 2 for guesses until the reach guess limit or guess the word
 class Guess_the_Word
+		attr_reader :word
 
-	def initialize(word_to_guess)
-
-		@word_to_guess = word_to_guess.chars("")
-		@guess_limit = word_to_guess.length
-		@guesses_available = "_" * word_to_guess.length
-		@game_over = false
-
-	end
-	def print_word(word_to_guess)
-		@word_to_guess.chars
+	def initialize(word)
+		@word = word
+		@guess_count = 0
+		@game_over = false	
 	end
 
-	def guess_word(letter)
+	def print_word
+		'_ ' * word.chars.length
+	end
 
-	end	
+	def available_guesses
+		available_guesses = @word.length
+		@available_guesses = available_guesses
+	end
+
+	def game_progress(letter_guessed)
+			display_letter = ""
+		 @word.chars.each do |letter|
+		 	if letter_guessed.include?(letter)
+		 		display_letter << letter
+		 	else 
+		 		display_letter << " _"
+		 	end
+		 end
+		 @display_letter = display_letter
+	end
+
 
 end
+
