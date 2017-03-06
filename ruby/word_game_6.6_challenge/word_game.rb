@@ -18,7 +18,7 @@
 # output: updated array
 
 # Method to track progress (guessed vs word)
-# input: word, guessed character
+# input: guessed letter
 # steps: If letter guessed is correct, display that character in the word
 # 		 If letter guessed is wrong, continue displaying words with blank
 # output: string showing the user correct guesses and telling them how many guesses they have left
@@ -46,7 +46,6 @@ class Guess_the_Word
 
 	def initialize(word)
 		@word = word
-		@guess_count = 0
 		@game_over = false	
 	end
 
