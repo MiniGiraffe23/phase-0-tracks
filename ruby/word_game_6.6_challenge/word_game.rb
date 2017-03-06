@@ -42,7 +42,7 @@
 #Gets user input of one word from player one
 #Asks player 2 for guesses until the reach guess limit or guess the word
 class Guess_the_Word
-		attr_reader :word
+		attr_reader :word, :game_over
 
 	def initialize(word)
 		@word = word
@@ -57,7 +57,7 @@ class Guess_the_Word
 	def guessed_letters(letter)
 		@guessed_letters.push(letter)
 	end
-	
+
 	def available_guesses
 		available_guesses = @word.length
 		@available_guesses = available_guesses 
@@ -75,11 +75,42 @@ class Guess_the_Word
 		 @display_letter = display_letter
 	end
 
+	def winner
+		put #congragulatory message here
+		@game_over	= true
+	end
+
+	def loser
+		#if guess count == 0 and 
+		#put taunting message here
+		@game_over = true
+
+	end
 
 end
 
-guess_the_word = Guess_the_Word.new("apple")
-p guess_the_word.print_word
-p guess_the_word.available_guesses
-p guess_the_word.game_progress("p")
-p guess_the_word.available_guesses
+#---USER INTERFACE---
+
+puts "Welcome to Guess the Word!"
+puts "Here are the Rules:"
+puts "Player One enters a word."
+puts "The entered word will appear on the screen in the form of blanks. Each blank represents a letter."
+puts "Player Two tries to guess the word by entering a letter."
+puts "The number of guesses is limited to the number of letters in the word provided by Player One. 
+	  If Player One enters 'apple' then Player Two has 5 available guesses."
+puts "The game ends when Player Two guesses the word correctly or reaches the guess limit."
+puts "Let the game begin!"
+
+players_word = gets.chomp
+guess_the_word = Guess_the_Word.new(players_word)
+
+
+
+
+
+
+#guess_the_word = Guess_the_Word.new("apple")
+#p guess_the_word.print_word
+#p guess_the_word.available_guesses
+#p guess_the_word.game_progress("p")
+#p guess_the_word.available_guesses
