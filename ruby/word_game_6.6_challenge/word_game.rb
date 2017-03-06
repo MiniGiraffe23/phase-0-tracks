@@ -46,6 +46,7 @@ class Guess_the_Word
 
 	def initialize(word)
 		@word = word
+		@guess_count = 0
 		@guessed_letters = []
 		@game_over = false	
 	end
@@ -81,7 +82,7 @@ class Guess_the_Word
 	end
 
 	def loser
-		#if guess count == 0 and 
+		#if guess count == 0 and display_letter != word
 		#put taunting message here
 		@game_over = true
 
