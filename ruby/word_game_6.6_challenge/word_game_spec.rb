@@ -3,10 +3,10 @@
 require_relative 'word_game'
 
 describe Guess_the_Word do 
-	let(:guess_the_word) {Guess_the_Word.new("userinput")}
+	let(:guess_the_word) {Guess_the_Word.new("apple")}
 
-	it "stores the word given by player 1 on initialization" do
-	expect(guess_the_word.print_word).to eq "u", "s", "e", "r", "i", "n", "p", "u", "t"
-	end	
+	it "gets a word from user and separates it into characters" do
+		expect(word_to_guess.chars("apple")). to eq ["a", "p", "p", "l", "e"]
+
 end
 
