@@ -39,15 +39,18 @@
 #Gets user input of one word from player one
 #Asks player 2 for guesses until the reach guess limit or guess the word
 class Guess_the_Word
+		attr_reader :word_to_guess, :guesses_available, :game_over
 
 	def initialize(word_to_guess)
-		@word_to_guess = word_to_guess
-		@guesses_available = word.length
-		@attempted_guesses = []
-		@correct_guess = 0
-		@hide_word = word_to_guess.tr(word_to_guess, "_")
+
+		@word_to_guess = word_to_guess.chars
+		@guesses_available = "_" * word_to_guess.length
+		@guesses_attempted = []
 		@game_over = false
 
 	end
+
+	def player1_word(word_to_guess)
+	end	
 
 end
