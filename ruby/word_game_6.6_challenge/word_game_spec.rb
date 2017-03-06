@@ -13,6 +13,10 @@ describe Guess_the_Word do
 		expect(guess_the_word.available_guesses). to eq 5
 	end
 
+	it "takes a letter and stores it in an array" do
+		expect(guess_the_word.guessed_letters("a")). to eq ["a"]
+	end
+	
 	it "takes a guessed letter and reveals whether or not a guess is correct by displaying letter" do
 		expect(guess_the_word.game_progress("a ")). to eq "a _ _ _ _"
 	end

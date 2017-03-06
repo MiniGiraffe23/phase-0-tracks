@@ -46,6 +46,7 @@ class Guess_the_Word
 
 	def initialize(word)
 		@word = word
+		@guessed_letters = []
 		@game_over = false	
 	end
 
@@ -53,9 +54,13 @@ class Guess_the_Word
 		'_ ' * word.chars.length
 	end
 
+	def guessed_letters(letter)
+		@guessed_letters.push(letter)
+	end
+	
 	def available_guesses
 		available_guesses = @word.length
-		@available_guesses = available_guesses
+		@available_guesses = available_guesses 
 	end
 
 	def game_progress(letter_guessed)
@@ -73,3 +78,8 @@ class Guess_the_Word
 
 end
 
+guess_the_word = Guess_the_Word.new("apple")
+p guess_the_word.print_word
+p guess_the_word.available_guesses
+p guess_the_word.game_progress("p")
+p guess_the_word.available_guesses
