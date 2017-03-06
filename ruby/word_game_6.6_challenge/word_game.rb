@@ -44,13 +44,18 @@ class Guess_the_Word
 	def initialize(word_to_guess)
 
 		@word_to_guess = word_to_guess.chars
+		@guess_limit = word_to_guess.length
 		@guesses_available = "_" * word_to_guess.length
-		@guesses_attempted = []
 		@game_over = false
 
 	end
+	def print_word
+		@word_to_guess.chars
+		word_to_guess
+	end
 
-	def player1_word(word_to_guess)
+	def guess_word(letter)
+
 	end	
 
 end
