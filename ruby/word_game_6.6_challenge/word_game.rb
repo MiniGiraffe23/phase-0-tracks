@@ -113,11 +113,6 @@ guess_the_word = Guess_the_Word.new(players_word)
 	end
 
 
-
-
-
-
-
 #guess_the_word = Guess_the_Word.new("apple")
 #p guess_the_word.print_word
 #p guess_the_word.available_guesses
