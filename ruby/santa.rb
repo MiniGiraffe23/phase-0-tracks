@@ -54,7 +54,7 @@ class Santa
 
 		@reindeer_ranking.delete(reindeer)
 		@reindeer_ranking.push(reindeer)
-		p @reindeer_ranking
+		@reindeer_ranking
 	end
 =begin
 #setter methods
@@ -73,11 +73,17 @@ reindeer = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen",
 			"Comet", "Cupid", "Donner", "Blitzen"]
 #add reindeer array so below loop can take a random reindeer name and run through the get_mad_at method
 
-	1000.times do |make_santas|
+	#100.times do |make_santas|
+	#   make_santas = Santa.new(genders.sample, ethnicities.sample, names.sample)
+	#	make_santas.get_mad_at(reindeer.sample) #make code take random reindeer name to run through gets_mad_at so all Santas don't have the same reindeer order; will display original ranking and then altered ranking
+	#	p make_santas
+	#end
+	make_santas = []
+	1000.times do 
 		make_santas = Santa.new(genders.sample, ethnicities.sample, names.sample)
-		make_santas.get_mad_at(reindeer.sample) #make code take random reindeer name to run through gets_mad_at so all Santas don't have the same reindeer order; will display original ranking and then altered ranking
-		p make_santas
+		p "This Santa is #{make_santas.name}. #{make_santas.name} identies as #{make_santas.gender}, is #{make_santas.ethnicity} and is #{make_santas.age}-years-old."
 	end
+
 #hehe, 1000 santas.
 
 =begin EARLIER TEST CODE
