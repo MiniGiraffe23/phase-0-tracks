@@ -45,47 +45,47 @@ class Guess_the_Word
 		attr_reader :word, :game_over
 
 	def initialize(word)
-		@word = word
-		@guess_count = 0
+		@word = word.split("")
+		@guess_count = word.length
 		@guessed_letters = []
+		@answer = Array.new(word.length, "_")
 		@game_over = false	
 	end
 
 	def print_word
-		'_ ' * word.chars.length
-	end
-
-	def guessed_letters(letter)
-		@guessed_letters.push(letter)
-	end
-
-	def available_guesses
-		available_guesses = @word.length
-		@available_guesses = available_guesses 
+		puts @answer.join(" ")
+		puts "You have #{@guess_count} guesses left."
+			if @guess_count == 0 && @answer.include?("_")
+				loser()
+			elsif 
+				 !@answer.include?("_")
+				winner()
+			end
 	end
 
 	def game_progress(letter_guessed)
-			display_letter = ""
-		 @word.chars.each do |letter|
-		 	if letter_guessed.include?(letter)
-		 		display_letter << letter
-		 	else 
-		 		display_letter << " _"
-		 	end
-		 end
-		 @display_letter = display_letter
+		if @guessed_letters.include?(letter_guessed) == false
+			@guessed_letters.push(letter_guessed)
+			@guess_count -= 1
+			@word.each_index do |idx| 
+			 	if @word[idx] == letter_guessed
+			 		@answer[idx] = letter_guessed
+			 	end
+			 end
+		else
+		 	puts "You entered the same letter twice. Please try again."		  	
+		end
+		print_word()
 	end
 
 	def winner
-		put #congragulatory message here
-		@game_over	= true
+		puts "Congratulations!! You've won the game."
+		@game_over = true
 	end
 
 	def loser
-		#if guess count == 0 and display_letter != word
-		#put taunting message here
+		puts "Sorry, Loser! Player One outsmarted you! Better luck next time."
 		@game_over = true
-
 	end
 
 end
@@ -101,9 +101,17 @@ puts "The number of guesses is limited to the number of letters in the word prov
 	  If Player One enters 'apple' then Player Two has 5 available guesses."
 puts "The game ends when Player Two guesses the word correctly or reaches the guess limit."
 puts "Let the game begin!"
-
+puts " Player One, please enter a word."
 players_word = gets.chomp
 guess_the_word = Guess_the_Word.new(players_word)
+
+	while guess_the_word.game_over == false
+
+		puts "Player Two, please enter a letter."
+		letter = gets.chomp
+		guess_the_word.game_progress(letter)
+	end
+
 
 
 
