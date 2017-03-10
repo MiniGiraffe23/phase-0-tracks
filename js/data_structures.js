@@ -29,3 +29,14 @@ function Car(make, model, year) {
 	console.log("CAR INITIALIZATION COMPLETE");
 }
 
+var newCar = new Car("Ford", "Mustang", 1967);
+console.log(newCar.make);
+console.log(newCar.model);
+console.log(newCar.year);
+newCar.start();
+
+var anotherCar = new Car("Buick", "Regal", 2017);
+console.log(anotherCar.make);
+console.log(anotherCar.model);
+console.log(anotherCar.year);
+anotherCar.start();
