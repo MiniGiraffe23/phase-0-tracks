@@ -1,12 +1,9 @@
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
-# We spent [#] hours on this challenge.
+# I worked on this challenge [by myself, with: Joe Connors].
+# We spent [1.25] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
-#
-
 # require relative links current file to others in the current directory
 # require, on the other hand, can access any file by specifing the path 
 
@@ -103,3 +100,20 @@ end
 
 #=======================================================================
 # Reflection Section
+=begin
+
+1) What are the differences between the two different hash syntaxes in the state_data.rb file?
+One set of syntax is used for keys which are strings (can be edited and changed) and one set for keys which are symbols. Symbols are the preferred syntax because they are immutable and easier to process. 
+
+2) What does require_realtive do and how does it differ from require?
+Require relative links a specific file within the same directory to your current file. Require allows you to link a current file with files outside the current directory by using a specified path.
+
+3) How to iterate through a hash:
+Use a loop or built in medthod like .each. 
+
+4) When refactoring virus_effects method, what stood out to you about the variables?
+The variables being utilized were instance varaibles and variables that had been defined earlier in the class. They also weren't needed because the method wasn't taking in any arguments but just storing the method calls that would be utilized later. 
+
+5) What concepts did you most solidify in this challenge?
+The differences between require_relative and require. Also, I'm a little more comfortable with utilizing instance variables and refactoring my code. 
+=end 
