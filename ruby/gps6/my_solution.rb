@@ -18,7 +18,6 @@ class VirusPredictor
     @population_density = population_density
   end
 
- private
 
 # storage for methods to be used later specific to the topic
   def virus_effects
@@ -26,7 +25,7 @@ class VirusPredictor
     speed_of_spread
   end
 
- 
+  private
 
 # a method that calculates the predicted deaths based on population, density and state
   def predicted_deaths
