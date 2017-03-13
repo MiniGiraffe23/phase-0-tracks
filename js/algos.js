@@ -28,9 +28,29 @@ longestWord(wordArray);
 var personOne = {name: "Steven", age :54};
 var personTwo = {name: "Tamir", age: 54};
 
-function compareObjects(objectOne, objectTwo) {
-	
-	}
+function compare(objectOne, objectTwo) {
+	if (objectOne === objectTwo); {
+		return true; }
+		}
+}
 
 compare(personOne, personTwo);
-//can't get this function to work either
+//can't get this function to work, will come back and rework
+
+//Release 2: build a function that takes an integer for length
+//builds and returns an array of strings of given length
+//function(3) would return 3 random words of varying length
+//1 letter min, max letter 10
+//Math.random returns floating-point of a random number range that can be scaled to desired range 
+//Math.floor, Math.
+
+function stringArray(length) {
+	var string = "";
+	var letters = "abcdefghijklmnopqrstuvwxyz";
+	var array = [];
+	for (i == 0; i < length; i++) {
+
+	}
+
+}
+//need help on this 
