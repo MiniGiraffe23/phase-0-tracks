@@ -25,14 +25,36 @@ longestWord(wordArray);
 
 //build a function that takes two objects and checks to see if a key or value pair matches
 
-var personOne = {name: "Steven", age :54};
-var personTwo = {name: "Tamir", age: 54};
+var Steven = {name: "Steven", age : 54};
+var Tamir = {name: "Tamir", age: 54};
 
-function compare(objectOne, objectTwo) {
-	if (objectOne === objectTwo); {
-		return true; }
+function objectsEqual(objectOne, objectTwo) { //create array of object names
+	var objectOneProps = Object.getOwnPropertyNames(objectOne);
+	var objectTwoProps = Object.getOwnPropertyNames(objectTwo);
+	//if each object containes the same number of properties then they are equal
+	if (objectOneProps.length == objectTwoProps.length) {
+		return true;
+	}
+	//if the values are the same in object one and two, then the objects are equal
+	for (var i = 0; i < objectOneProps.length; i++) {
+		var propObject = objectOneProps[i];
+		
+		if (objectOne[propObject] == objectTwo[propObject]) {
+			return true;
 		}
+	}
+	return false;
 }
+
+console.log(objectsEqual(Steven, Tamir));
+
+
+//Below is original attempt
+//function compare(objectOne, objectTwo) {
+//	if (objectOne === objectTwo); {
+//		return true; }
+//		}
+//}
 
 compare(personOne, personTwo);
 //can't get this function to work, will come back and rework
