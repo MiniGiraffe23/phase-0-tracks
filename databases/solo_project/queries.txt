@@ -36,3 +36,35 @@ Run a SQL query for each of the following:
 
 	SELECT * FROM movies;
 	2|The Lord of the Rings - The Fellowship of the Ring|2001|8.8
+
+RELEASE 3: Research -
+
+Four types of joins: inner, left, right and full.
+Inner selects all records from Table A and B where a particular condition is met.
+
+Left join selects all data from Table A along with data from Table B in which a particular condition is met.
+
+Right join selects all data from Table B along with data from Table A where a particular condition is met.
+
+Full join selest all frecords from Table A and B regardless of whether a particular condition is met. 
+
+INNER JOIN:
+
+	SELECT actors.first_name, movies.title FROM actors JOIN movies ON actors.movie_id = movies.id;
+
+	Viggo|The Lord of the Rings - The Fellowship of the Ring
+	Christopher|The Lord of the Rings - The Fellowship of the Ring
+	Elijah|The Lord of the Rings - The Fellowship of the Ring
+
+LEFT JOIN:
+
+	SELECT actors.first_name, actors.last_name, movies.title FROM actors LEFT JOIN movies on actors.movie_id=movies.id ORDER BY actors.last_name;
+
+(some columns blank due to earlier deletion)
+
+	Eric|Bana|
+	Josh|Hartnett|
+	Christopher|Lee|The Lord of the Rings - The Fellowship of the Ring
+	Ewan|McGregor|
+	Viggo|Mortensen|The Lord of the Rings - The Fellowship of the Ring
+	Elijah|Wood|The Lord of the Rings - The Fellowship of the Ring
