@@ -49,15 +49,15 @@ function objectsEqual(objectOne, objectTwo) { //create array of object names
 console.log(objectsEqual(Steven, Tamir));
 
 
-//Below is original attempt
-//function compare(objectOne, objectTwo) {
-//	if (objectOne === objectTwo); {
-//		return true; }
-//		}
-//}
-
+/*Below is original attempt
+function compare(objectOne, objectTwo) {
+	if (objectOne === objectTwo); {
+		return true; }
+		}
+}
 compare(personOne, personTwo);
-//can't get this function to work, will come back and rework
+can't get this function to work, will come back and rework
+*/
 
 //Release 2: build a function that takes an integer for length
 //builds and returns an array of strings of given length
