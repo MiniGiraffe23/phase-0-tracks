@@ -1,0 +1,38 @@
+Run a SQL query for each of the following:
+
+1. Display the information in one table (either table is fine).
+
+	sqlite> SELECT * FROM actors;
+	1|Eric|Bana|true|1
+	2|Josh|Hartnett|true|1
+	3|Ewan|McGregor|true|1
+	4|Viggo|Mortensen|true|2
+	5|Christopher|Lee|false|2
+	6|Elijah|Wood|true|2
+
+2. Update an item that meets some condition.
+
+	UPDATE actors SET still_alive="true" WHERE first_name="Christopher";
+
+	 SELECT * FROM actors WHERE first_name="Christopher";
+	 5|Christopher|Lee|true|2
+
+3. Display the information in both tables using one query.
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+
+	 SELECT * FROM actors, movies WHERE actors.movie_id = movies.id;
+
+	1|Eric|Bana|true|1|1|Black Hawk Down|2001|7.7
+	2|Josh|Hartnett|true|1|1|Black Hawk Down|2001|7.7
+	3|Ewan|McGregor|true|1|1|Black Hawk Down|2001|7.7
+	4|Viggo|Mortensen|true|2|2|The Lord of the Rings - The Fellowship of the Ring|2001|8.8
+	5|Christopher|Lee|true|2|2|The Lord of the Rings - The Fellowship of the Ring|2001|8.8
+	6|Elijah|Wood|true|2|2|The Lord of the Rings - The Fellowship of the Ring|2001|8.8
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
+
+	DELETE FROM movies WHERE viewer_rating<8;
+
+	SELECT * FROM movies;
+	2|The Lord of the Rings - The Fellowship of the Ring|2001|8.8
