@@ -85,10 +85,24 @@ def search_results(database, search_item)
 	database.execute("SELECT * FROM whiskey join whiskey_type on whiskey_id = type_id WHERE whiskey_name = search_item or type_name = search_item")
 end
 
-
-
-
+def display_all_whiskies(database)
+	print "Here is a list of all the whiskies in our library:\r\n"
+	name_of_whiskey = database.execute("SELECT * FROM whiskey;")
+	name_of_whiskey.each do |whiskey|
+		puts "#{whiskey['whiskey_name']}, #{whiskey['year']}"
+	end
+end
 # Define method to display data from all tables
+def display_all_data(database)
+	puts "Here is a detailed description of the whiskeies in our library along with user reviews and ratings:"
+	puts ""
+	all_data = db.execute("SELECT * FROM whiskey, whiskey_type, whiskey_details AND whiskey_reviews WHERE whiskey_reviews.whiskey_id = whiskey.whiskey_id AND whiskey.details_id = whiskey_details.details_id ORDER BY whiskey_id")
+	all_data.each do |whiskey|
+		puts "#{whiskey['whiskey_name']}, #{whiskey[year]}, TASTE: #{whiskey_details['taste']}, FINISH: #{whiskey_details['finish']}, REVIEW: #{whiskey_reviews['username']},
+			#{whiskey_reviews['comment']}, #{whiskey_reviews['rating']}"
+		puts "----------------------------------------------------------------------------------------------"
+	end
+	puts "That's all we have for now."
+end
 # Add user interface to get input from user
-
 
