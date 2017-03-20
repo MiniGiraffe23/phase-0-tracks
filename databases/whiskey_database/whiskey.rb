@@ -34,7 +34,7 @@ database.execute(create_whiskey_type_table)
 # 	-taste
 # 	-finish
 # 	-price
-create_whiskey_details_table = <<-SQL
+create_whiskey_details = <<-SQL
 	CREATE TABLE IF NOT EXISTS whiskey_details(
 		details_id INTEGER PRIMARY KEY,
 		taste VARCHAR (255),
@@ -42,7 +42,7 @@ create_whiskey_details_table = <<-SQL
 		price INTEGER
 	)
 SQL
-database.execute(create_whiskey_details_table)
+database.execute(create_whiskey_details)
 
 
 # Create table to store reviews:
