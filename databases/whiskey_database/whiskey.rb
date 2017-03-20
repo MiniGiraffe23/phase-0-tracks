@@ -69,10 +69,14 @@ def add_whiskey(database, whiskey, year, type_id, details_id, reviews_id)
 end
 
 def create_whiskey_type(database, type_name)
-	database.execute("INSERT INTO whiskey_type (type_name) VALUES (?)", [type])
+	database.execute("INSERT INTO whiskey_type (type_name) VALUES (?)", [type_name])
 end
-# Define method to allow users to search for a particular whiskey
 
+def create_whiskey_details(database, taste, finish, price)
+	database.execute("INSERT INTO whiskey_details (taste, finish, price) VALUES (?, ?, ?)", [taste, finish, price])
+end
+
+# Define method to allow users to search for a particular whiskey
 
 # Define method to display data from all tables
 # Add user interface to get input from user
