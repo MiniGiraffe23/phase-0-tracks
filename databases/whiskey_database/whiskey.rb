@@ -7,6 +7,14 @@ database = SQLite3::Database.new("whiskies.db")
 # Create table to store whiskies:
 # 	-name
 # 	-year
+create_whiskey_table = <<-SQL
+	CREATE TABLE whiskey(
+		whiskey_id INTEGER PRIMARY KEY<
+		whiskey_name VARCHAR (150),
+		year INTEGER
+	)
+SQL
+database.execute(create_whiskey_table)
 # Create table to store:
 # 	-type
 # Create table to store details:
