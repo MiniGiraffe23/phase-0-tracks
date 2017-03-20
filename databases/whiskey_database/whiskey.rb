@@ -21,6 +21,7 @@ create_whiskey_table = <<-SQL
 	)
 SQL
 database.execute(create_whiskey_table)
+
 # Create table to store:
 # 	-type
 create_whiskey_type_table = <<-SQL
@@ -30,6 +31,7 @@ create_whiskey_type_table = <<-SQL
 	)
 SQL
 database.execute(create_whiskey_type_table)
+
 # Create table to store details:
 # 	-taste
 # 	-finish
@@ -44,11 +46,21 @@ create_whiskey_details = <<-SQL
 SQL
 database.execute(create_whiskey_details)
 
-
 # Create table to store reviews:
 # 	-username
 # 	-comment
 # 	-stars
+create_whiskey_reviews = <<-SQL
+	CREATE TABLE IF NOT EXISTS whiskey_reviews(
+		reviews_id INTEGER PRIMARY KEY,
+		username VARCHAR (150),
+		comment VARCHAR (255),
+		stars INTEGER,
+		whiskey_id INTEGER,
+		FOREIGN KEY (whiskey_id) REFERENCES whiskey(whiskeyL_id)
+SQL
+database.execute(create_whiskey_reviews)
+
 # Define method to allow users to search for a particular whiskey
 # Define method to allows users to add a whiskey (if not already in database) or their own review
 # Define method to display data from all tables
