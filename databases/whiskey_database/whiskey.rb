@@ -76,6 +76,10 @@ def create_whiskey_details(database, taste, finish, price)
 	database.execute("INSERT INTO whiskey_details (taste, finish, price) VALUES (?, ?, ?)", [taste, finish, price])
 end
 
+def create_whiskey_reviews(database, username, comment, stars, whiskey_id)
+	database.execute("INSERT INTO whiskey_reviews (username, comment, stars, whiskey_id) VALUES (?, ?, ?, ?)", [username, comment, stars, whiskey_id])
+end
+
 # Define method to allow users to search for a particular whiskey
 
 # Define method to display data from all tables
