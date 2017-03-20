@@ -118,7 +118,7 @@ end
 def display_all_data(database)
 	puts "Here is a detailed description of the whiskeies in our library along with user reviews and ratings:"
 	puts ""
-	all_data = database.execute("SELECT * FROM whiskey, whiskey_type, whiskey_details AND whiskey_reviews WHERE whiskey_reviews.whiskey_id = whiskey.whiskey_id AND whiskey.details_id = whiskey_details.details_id ORDER BY whiskey_id")
+	all_data = database.execute("SELECT * FROM whiskey, whiskey_type, whiskey_details, whiskey_reviews WHERE whiskey_reviews.whiskey_id = whiskey.whiskey_id and whiskey.details_id = whiskey_details.details_id ORDER BY whiskey_id")
 	all_data.each do |whiskey|
 		puts "#{whiskey['whiskey_name']}, TASTE: #{whiskey_details['taste']}, FINISH: #{whiskey_details['finish']}, REVIEW: #{whiskey_reviews['username']},
 			#{whiskey_reviews['comment']}, #{whiskey_reviews['rating']}"
@@ -133,3 +133,4 @@ puts "Welcome to the Library of Whiskey Connoisseurs!"
 puts "Here you can learn all about various whiskies, enter your own review, or add a whiskey that hasn't yet made it into the library."
 
 #testing method display_all_whiskies(database)
+display_all_data(database)
