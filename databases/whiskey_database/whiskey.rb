@@ -65,11 +65,11 @@ create_whiskey_details = <<-SQL
 		finish VARCHAR (255)
 	)
 SQL
-database.execute(create_whiskey_details
-database.exuecute("INSERT INTO whiskey_details (taste, finish) VALUES ('Sweet, gingerbread and molasses falvor, hint of marshmallow and a trace amount of spice', 'Sugary sweetness, burnt maple sugar taste')")
-database.exuecute("INSERT INTO whiskey_details (taste, finish) VALUES ('Oily, dry oak, honey and smokey', 'Soft smoke, woody spice and charred oak')")
-database.exuecute("INSERT INTO whiskey_details (taste, finish) VALUES ('Malty, creamy with a hint of berry, cloves and butterscotch', 'Spicy oak, hint of peppermint')")
-database.exuecute("INSERT INTO whiskey_details (taste, finish) VALUES ('Sweet with good body, gentle spice with a hint of vanilla, dried fruit, cinnamon and nuts', 'Spicy, bit dry, sweet')")
+database.execute(create_whiskey_details)
+#database.execute("INSERT INTO whiskey_details (taste, finish) VALUES ('Sweet, gingerbread and molasses falvor, hint of marshmallow and a trace amount of spice', 'Sugary sweetness, burnt maple sugar taste')")
+#database.execute("INSERT INTO whiskey_details (taste, finish) VALUES ('Oily, dry oak, honey and smokey', 'Soft smoke, woody spice and charred oak')")
+#database.execute("INSERT INTO whiskey_details (taste, finish) VALUES ('Malty, creamy with a hint of berry, cloves and butterscotch', 'Spicy oak, hint of peppermint')")
+#database.execute("INSERT INTO whiskey_details (taste, finish) VALUES ('Sweet with good body, gentle spice with a hint of vanilla, dried fruit, cinnamon and nuts', 'Spicy, bit dry, sweet')")
 
 # Create table to store reviews:
 # 	-username
