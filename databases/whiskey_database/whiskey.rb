@@ -20,6 +20,7 @@ create_whiskey_table = <<-SQL
 	)
 SQL
 database.execute(create_whiskey_table)
+=begin
 database.execute("INSERT INTO whiskey (whiskey_name, type_id) VALUES ('Angels Envy', 1)")
 database.execute("INSERT INTO whiskey (whiskey_name, type_id) VALUES ('Blantons: Straight from the Barrel', 1)")
 database.execute("INSERT INTO whiskey (whiskey_name, type_id) VALUES ('Jameson', 2)")
@@ -32,6 +33,7 @@ database.execute("INSERT INTO whiskey (whiskey_name, type_id) VALUES ('Crown Roy
 database.execute("INSERT INTO whiskey (whiskey_name, type_id) VALUES ('Seagrams V.O.', 5)")
 database.execute("INSERT INTO whiskey (whiskey_name, type_id) VALUES ('Bulleit Rye', 6)")
 database.execute("INSERT INTO whiskey (whiskey_name, type_id) VALUES ('Angels Envy Rye', 6)")
+=end
 
 # Create table to store:
 # 	-type
@@ -86,7 +88,7 @@ database.execute(create_whiskey_reviews)
 #def add_whiskey(database, whiskey_name, type_id, details_id, reviews_id)
 #	database.execute("INSERT INTO whiskey (whiskey_name, type_id, details_id, reviews_id) VALUES (?, ?, ?, ?)", [whiskey_name, type_id, details_id, review_id])
 #end
-=begin
+
 def create_whiskey_type(database, type_name)
 	database.execute("INSERT INTO whiskey_type (type_name) VALUES (?)", [type_name])
 end
@@ -105,7 +107,8 @@ def search_results(database, search_item)
 end
 
 def display_all_whiskies(database)
-	print "Here is a list of all the whiskies in our library:\r\n"
+	puts "Here is a list of all the whiskies in our library:"
+	puts""
 	name_of_whiskey = database.execute("SELECT * FROM whiskey;")
 	name_of_whiskey.each do |whiskey|
 		puts "#{whiskey['whiskey_name']}"
@@ -115,7 +118,7 @@ end
 def display_all_data(database)
 	puts "Here is a detailed description of the whiskeies in our library along with user reviews and ratings:"
 	puts ""
-	all_data = db.execute("SELECT * FROM whiskey, whiskey_type, whiskey_details AND whiskey_reviews WHERE whiskey_reviews.whiskey_id = whiskey.whiskey_id AND whiskey.details_id = whiskey_details.details_id ORDER BY whiskey_id")
+	all_data = database.execute("SELECT * FROM whiskey, whiskey_type, whiskey_details AND whiskey_reviews WHERE whiskey_reviews.whiskey_id = whiskey.whiskey_id AND whiskey.details_id = whiskey_details.details_id ORDER BY whiskey_id")
 	all_data.each do |whiskey|
 		puts "#{whiskey['whiskey_name']}, TASTE: #{whiskey_details['taste']}, FINISH: #{whiskey_details['finish']}, REVIEW: #{whiskey_reviews['username']},
 			#{whiskey_reviews['comment']}, #{whiskey_reviews['rating']}"
@@ -128,4 +131,5 @@ end
 
 puts "Welcome to the Library of Whiskey Connoisseurs!"
 puts "Here you can learn all about various whiskies, enter your own review, or add a whiskey that hasn't yet made it into the library."
-=end
+
+#testing method display_all_whiskies(database)
