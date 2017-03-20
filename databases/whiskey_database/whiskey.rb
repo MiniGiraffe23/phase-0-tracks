@@ -104,5 +104,8 @@ def display_all_data(database)
 	end
 	puts "That's all we have for now."
 end
+
 # Add user interface to get input from user
 
+puts "Welcome to the Library of Whiskey Connoisseurs!"
+puts "Here you can learn all about various whiskies, enter your own review, or add a whiskey that hasn't yet made it into the library."
