@@ -7,12 +7,10 @@ database.results_as_hash = true
 
 # Create table to store whiskies:
 # 	-name
-# 	-year
 create_whiskey_table = <<-SQL
 	CREATE TABLE IF NOT EXISTS whiskey(
 		whiskey_id INTEGER PRIMARY KEY,
 		whiskey_name VARCHAR (100),
-		year INTEGER,
 		type_id INTEGER,
 		details_id INTEGER,
 		reviews_id INTEGER,
@@ -22,6 +20,20 @@ create_whiskey_table = <<-SQL
 	)
 SQL
 database.execute(create_whiskey_table)
+=begin
+database.execute("INSERT INTO whiskey (whiskey_name, type_id) VALUES ('Angels Envy', 1)")
+database.execute("INSERT INTO whiskey (whiskey_name, type_id) VALUES ('Blantons: Straight from the Barrel', 1)")
+database.execute("INSERT INTO whiskey (whiskey_name, type_id) VALUES ('Jameson', 2)")
+database.execute("INSERT INTO whiskey (whiskey_name, type_id) VALUES ('Bushmills Honey', 2)")
+database.execute("INSERT INTO whiskey (whiskey_name, type_id) VALUES ('Johnnie Walker Double Black', 3)")
+database.execute("INSERT INTO whiskey (whiskey_name, type_id) VALUES ('Monkey Shoulder', 3)")
+database.execute("INSERT INTO whiskey (whiskey_name, type_id) VALUES ('Balvenie 12 Yr. Doublewood', 4)")
+database.execute("INSERT INTO whiskey (whiskey_name, type_id) VALUES ('Lagavulin 16 Yr.', 4)")
+database.execute("INSERT INTO whiskey (whiskey_name, type_id) VALUES ('Crown Royal Maple', 5)")
+database.execute("INSERT INTO whiskey (whiskey_name, type_id) VALUES ('Seagrams V.O.', 5)")
+database.execute("INSERT INTO whiskey (whiskey_name, type_id) VALUES ('Bulleit Rye', 6)")
+database.execute("INSERT INTO whiskey (whiskey_name, type_id) VALUES ('Angels Envy Rye', 6)")
+=end
 
 # Create table to store:
 # 	-type
@@ -73,9 +85,9 @@ SQL
 database.execute(create_whiskey_reviews)
 
 # Define method to allows users to add a whiskey (if not already in database) or their own review
-def add_whiskey(database, whiskey_name, year, type_id, details_id, reviews_id)
-	database.execute("INSERT INTO whiskey (whiskey_name, year, type_id, details_id, reviews_id) VALUES (?, ?, ?, ?, ?)", [whiskey_name, year, type_id, details_id, review_id])
-end
+#def add_whiskey(database, whiskey_name, type_id, details_id, reviews_id)
+#	database.execute("INSERT INTO whiskey (whiskey_name, type_id, details_id, reviews_id) VALUES (?, ?, ?, ?)", [whiskey_name, type_id, details_id, review_id])
+#end
 
 def create_whiskey_type(database, type_name)
 	database.execute("INSERT INTO whiskey_type (type_name) VALUES (?)", [type_name])
@@ -95,19 +107,20 @@ def search_results(database, search_item)
 end
 
 def display_all_whiskies(database)
-	print "Here is a list of all the whiskies in our library:\r\n"
+	puts "Here is a list of all the whiskies in our library:"
+	puts""
 	name_of_whiskey = database.execute("SELECT * FROM whiskey;")
 	name_of_whiskey.each do |whiskey|
-		puts "#{whiskey['whiskey_name']}, #{whiskey['year']}"
+		puts "#{whiskey['whiskey_name']}"
 	end
 end
 # Define method to display data from all tables
 def display_all_data(database)
 	puts "Here is a detailed description of the whiskeies in our library along with user reviews and ratings:"
 	puts ""
-	all_data = db.execute("SELECT * FROM whiskey, whiskey_type, whiskey_details AND whiskey_reviews WHERE whiskey_reviews.whiskey_id = whiskey.whiskey_id AND whiskey.details_id = whiskey_details.details_id ORDER BY whiskey_id")
+	all_data = database.execute("SELECT * FROM whiskey, whiskey_type, whiskey_details AND whiskey_reviews WHERE whiskey_reviews.whiskey_id = whiskey.whiskey_id AND whiskey.details_id = whiskey_details.details_id ORDER BY whiskey_id")
 	all_data.each do |whiskey|
-		puts "#{whiskey['whiskey_name']}, #{whiskey[year]}, TASTE: #{whiskey_details['taste']}, FINISH: #{whiskey_details['finish']}, REVIEW: #{whiskey_reviews['username']},
+		puts "#{whiskey['whiskey_name']}, TASTE: #{whiskey_details['taste']}, FINISH: #{whiskey_details['finish']}, REVIEW: #{whiskey_reviews['username']},
 			#{whiskey_reviews['comment']}, #{whiskey_reviews['rating']}"
 		puts "----------------------------------------------------------------------------------------------"
 	end
@@ -118,4 +131,5 @@ end
 
 puts "Welcome to the Library of Whiskey Connoisseurs!"
 puts "Here you can learn all about various whiskies, enter your own review, or add a whiskey that hasn't yet made it into the library."
-=end
+
+#testing method display_all_whiskies(database)
