@@ -10,13 +10,24 @@ database = SQLite3::Database.new("whiskies.db")
 create_whiskey_table = <<-SQL
 	CREATE TABLE IF NOT EXISTS whiskey(
 		whiskey_id INTEGER PRIMARY KEY,
-		whiskey_name VARCHAR (150),
-		year INTEGER
+		whiskey_name VARCHAR (100),
+		year INTEGER,
+		type_id INTEGER,
+		details_id INTEGER,
+		reviews_id INTEGER,
+		FOREIGN KEY (type_id) REFERENCES whiskey_type(type_id),
+		FOREIGN KEY (details_id) REFERENCES whiskey_details(details_id),
+		FOREIGN KEY (reviews_id) REFERENCES whiskey_reviews(reviews_id)
 	)
 SQL
 database.execute(create_whiskey_table)
 # Create table to store:
 # 	-type
+create_whiskey_type_table = <<-SQL
+	CREATE TABLE IF NOT EXISTS whiskey_type(
+
+		)
+SQL
 # Create table to store details:
 # 	-taste
 # 	-finish
