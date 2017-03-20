@@ -32,12 +32,15 @@ create_whiskey_type_table = <<-SQL
 	)
 SQL
 database.execute(create_whiskey_type_table)
-database.execute("INSERT INTO whiskey_type (type_name) VALUES ('Bourbon')")
-database.execute("INSERT INTO whiskey_type (type_name) VALUES ('Irish')")
-database.execute("INSERT INTO whiskey_type (type_name) VALUES ('Blended')")
-database.execute("INSERT INTO whiskey_type (type_name) VALUES ('Single Malt')")
-database.execute("INSERT INTO whiskey_type (type_name) VALUES ('Canadian')")
-database.execute("INSERT INTO whiskey_type (type_name) VALUES ('Rye')")
+
+=begin ADD SOME TYPES FOR USERS TO ALREADY HAVE
+database.execute("INSERT INTO whiskey_type (type_name) VALUES ('Bourbon')") => 1
+database.execute("INSERT INTO whiskey_type (type_name) VALUES ('Irish')") => 2
+database.execute("INSERT INTO whiskey_type (type_name) VALUES ('Blended')") => 3
+database.execute("INSERT INTO whiskey_type (type_name) VALUES ('Single Malt')") => 4
+database.execute("INSERT INTO whiskey_type (type_name) VALUES ('Canadian')") =>5
+database.execute("INSERT INTO whiskey_type (type_name) VALUES ('Rye')") => 6
+=end
 
 # Create table to store details:
 # 	-taste
@@ -115,3 +118,4 @@ end
 
 puts "Welcome to the Library of Whiskey Connoisseurs!"
 puts "Here you can learn all about various whiskies, enter your own review, or add a whiskey that hasn't yet made it into the library."
+=end
