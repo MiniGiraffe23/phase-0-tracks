@@ -44,6 +44,7 @@ create_whiskey_details_table = <<-SQL
 SQL
 database.execute(create_whiskey_details_table)
 
+
 # Create table to store reviews:
 # 	-username
 # 	-comment
