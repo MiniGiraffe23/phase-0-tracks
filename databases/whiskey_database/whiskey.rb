@@ -81,8 +81,11 @@ def create_whiskey_reviews(database, username, comment, stars, whiskey_id)
 end
 
 # Define method to allow users to search for a particular whiskey by name or type
-def search_results(database, whiskey_name)
-	
+def search_results(database, search_item)
+	database.execute("SELECT * FROM whiskey join whiskey_type on whiskey_id = type_id WHERE whiskey_name = search_item or type_name = search_item")
+end
+
+
 
 
 # Define method to display data from all tables
