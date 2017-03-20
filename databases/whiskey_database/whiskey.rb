@@ -62,11 +62,14 @@ create_whiskey_details = <<-SQL
 	CREATE TABLE IF NOT EXISTS whiskey_details(
 		details_id INTEGER PRIMARY KEY,
 		taste VARCHAR (255),
-		finish VARCHAR (255),
-		price INTEGER
+		finish VARCHAR (255)
 	)
 SQL
 database.execute(create_whiskey_details)
+#database.execute("INSERT INTO whiskey_details (taste, finish) VALUES ('Sweet, gingerbread and molasses falvor, hint of marshmallow and a trace amount of spice', 'Sugary sweetness, burnt maple sugar taste')")
+#database.execute("INSERT INTO whiskey_details (taste, finish) VALUES ('Oily, dry oak, honey and smokey', 'Soft smoke, woody spice and charred oak')")
+#database.execute("INSERT INTO whiskey_details (taste, finish) VALUES ('Malty, creamy with a hint of berry, cloves and butterscotch', 'Spicy oak, hint of peppermint')")
+#database.execute("INSERT INTO whiskey_details (taste, finish) VALUES ('Sweet with good body, gentle spice with a hint of vanilla, dried fruit, cinnamon and nuts', 'Spicy, bit dry, sweet')")
 
 # Create table to store reviews:
 # 	-username
@@ -83,6 +86,20 @@ create_whiskey_reviews = <<-SQL
 	)
 SQL
 database.execute(create_whiskey_reviews)
+=begin
+database.execute("INSERT INTO whiskey_reviews (username, comment, stars, whiskey_id) VALUES ('whiskeyLover01', 'Super delicious!', 4, 1)")
+database.execute("INSERT INTO whiskey_reviews (username, comment, stars, whiskey_id) VALUES ('Whiskey_Drinker09', 'Great taste, decent price', 4.2, 2)")
+database.execute("INSERT INTO whiskey_reviews (username, comment, stars, whiskey_id) VALUES ('whiskeyMan123', 'delicious!', 4.3, 3)")
+database.execute("INSERT INTO whiskey_reviews (username, comment, stars, whiskey_id) VALUES ('adam_023', 'decent flavor', 3.9, 4)")
+database.execute("INSERT INTO whiskey_reviews (username, comment, stars, whiskey_id) VALUES ('whiskeyLover014', 'no comment', 4, 5)")
+database.execute("INSERT INTO whiskey_reviews (username, comment, stars, whiskey_id) VALUES ('whiskeyLover2101', 'no comment', 4, 6)")
+database.execute("INSERT INTO whiskey_reviews (username, comment, stars, whiskey_id) VALUES ('whiskeyLover4501', 'Super delicious!', 5, 7)")
+database.execute("INSERT INTO whiskey_reviews (username, comment, stars, whiskey_id) VALUES ('whiskeyLover401', 'Super delicious!', 5, 8)")
+database.execute("INSERT INTO whiskey_reviews (username, comment, stars, whiskey_id) VALUES ('whiskeyLover7701', 'Super delicious!', 4.4, 9)")
+database.execute("INSERT INTO whiskey_reviews (username, comment, stars, whiskey_id) VALUES ('whiskeyLover801', 'not for me', 1.5, 10)")
+database.execute("INSERT INTO whiskey_reviews (username, comment, stars, whiskey_id) VALUES ('whiskeyLover0981', 'no comment', 2.1, 11)")
+database.execute("INSERT INTO whiskey_reviews (username, comment, stars, whiskey_id) VALUES ('whiskeyLover06561', 'no comment', 4, 12)")
+=end
 
 # Define method to allows users to add a whiskey (if not already in database) or their own review
 #def add_whiskey(database, whiskey_name, type_id, details_id, reviews_id)
@@ -118,7 +135,17 @@ end
 def display_all_data(database)
 	puts "Here is a detailed description of the whiskeies in our library along with user reviews and ratings:"
 	puts ""
-	all_data = database.execute("SELECT * FROM whiskey, whiskey_type, whiskey_details, whiskey_reviews WHERE whiskey_reviews.whiskey_id = whiskey.whiskey_id and whiskey.details_id = whiskey_details.details_id ORDER BY whiskey_id")
+	all_data = database.execute("SELECT whiskey.whiskey_name, whiskey_type.type_name, whiskey_details.taste, whiskey_details.finish, whiskey_reviews.username,
+		whiskey_reviews.comment, whiskey_reviews.stars 
+		FROM whiskey 
+		INNER JOIN whiskey_type 
+		ON whiskey.type_id = whiskey_type.type_id
+		INNER JOIN whiskey_details
+		ON whiskey.details_id = whiskey_details.details_id
+		INNER JOIN whiskey_reviews
+		ON whiskey.reviews_id = whiskey_reviews.reviews_id
+		")
+	puts all_data
 	all_data.each do |whiskey|
 		puts "#{whiskey['whiskey_name']}, TASTE: #{whiskey_details['taste']}, FINISH: #{whiskey_details['finish']}, REVIEW: #{whiskey_reviews['username']},
 			#{whiskey_reviews['comment']}, #{whiskey_reviews['rating']}"
