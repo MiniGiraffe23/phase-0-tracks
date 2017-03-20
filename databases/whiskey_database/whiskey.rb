@@ -32,6 +32,12 @@ create_whiskey_type_table = <<-SQL
 	)
 SQL
 database.execute(create_whiskey_type_table)
+database.execute("INSERT INTO whiskey_type (type_name) VALUES ('Bourbon')")
+database.execute("INSERT INTO whiskey_type (type_name) VALUES ('Irish')")
+database.execute("INSERT INTO whiskey_type (type_name) VALUES ('Blended')")
+database.execute("INSERT INTO whiskey_type (type_name) VALUES ('Single Malt')")
+database.execute("INSERT INTO whiskey_type (type_name) VALUES ('Canadian')")
+database.execute("INSERT INTO whiskey_type (type_name) VALUES ('Rye')")
 
 # Create table to store details:
 # 	-taste
