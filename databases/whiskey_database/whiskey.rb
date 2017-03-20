@@ -8,8 +8,8 @@ database = SQLite3::Database.new("whiskies.db")
 # 	-name
 # 	-year
 create_whiskey_table = <<-SQL
-	CREATE TABLE whiskey(
-		whiskey_id INTEGER PRIMARY KEY<
+	CREATE TABLE IF NOT EXISTS whiskey(
+		whiskey_id INTEGER PRIMARY KEY,
 		whiskey_name VARCHAR (150),
 		year INTEGER
 	)
