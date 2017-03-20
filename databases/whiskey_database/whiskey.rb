@@ -25,9 +25,11 @@ database.execute(create_whiskey_table)
 # 	-type
 create_whiskey_type_table = <<-SQL
 	CREATE TABLE IF NOT EXISTS whiskey_type(
-
-		)
+		type_id INTEGER PRIMARY KEY,
+		type_name VARCHAR (150)
+	)
 SQL
+database.execute(create_whiskey_type_table)
 # Create table to store details:
 # 	-taste
 # 	-finish
