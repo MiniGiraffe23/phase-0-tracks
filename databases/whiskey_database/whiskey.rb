@@ -62,11 +62,14 @@ create_whiskey_details = <<-SQL
 	CREATE TABLE IF NOT EXISTS whiskey_details(
 		details_id INTEGER PRIMARY KEY,
 		taste VARCHAR (255),
-		finish VARCHAR (255),
-		price INTEGER
+		finish VARCHAR (255)
 	)
 SQL
-database.execute(create_whiskey_details)
+database.execute(create_whiskey_details
+database.exuecute("INSERT INTO whiskey_details (taste, finish) VALUES ('Sweet, gingerbread and molasses falvor, hint of marshmallow and a trace amount of spice', 'Sugary sweetness, burnt maple sugar taste')")
+database.exuecute("INSERT INTO whiskey_details (taste, finish) VALUES ('Oily, dry oak, honey and smokey', 'Soft smoke, woody spice and charred oak')")
+database.exuecute("INSERT INTO whiskey_details (taste, finish) VALUES ('Malty, creamy with a hint of berry, cloves and butterscotch', 'Spicy oak, hint of peppermint')")
+database.exuecute("INSERT INTO whiskey_details (taste, finish) VALUES ('Sweet with good body, gentle spice with a hint of vanilla, dried fruit, cinnamon and nuts', 'Spicy, bit dry, sweet')")
 
 # Create table to store reviews:
 # 	-username
@@ -83,12 +86,26 @@ create_whiskey_reviews = <<-SQL
 	)
 SQL
 database.execute(create_whiskey_reviews)
+=begin
+database.execute("INSERT INTO whiskey_reviews (username, comment, stars, whiskey_id) VALUES ('whiskeyLover01', 'Super delicious!', 4, 1)")
+database.execute("INSERT INTO whiskey_reviews (username, comment, stars, whiskey_id) VALUES ('Whiskey_Drinker09', 'Great taste, decent price', 4.2, 2)")
+database.execute("INSERT INTO whiskey_reviews (username, comment, stars, whiskey_id) VALUES ('whiskeyMan123', 'delicious!', 4.3, 3)")
+database.execute("INSERT INTO whiskey_reviews (username, comment, stars, whiskey_id) VALUES ('adam_023', 'decent flavor', 3.9, 4)")
+database.execute("INSERT INTO whiskey_reviews (username, comment, stars, whiskey_id) VALUES ('whiskeyLover014', 'no comment', 4, 5)")
+database.execute("INSERT INTO whiskey_reviews (username, comment, stars, whiskey_id) VALUES ('whiskeyLover2101', 'no comment', 4, 6)")
+database.execute("INSERT INTO whiskey_reviews (username, comment, stars, whiskey_id) VALUES ('whiskeyLover4501', 'Super delicious!', 5, 7)")
+database.execute("INSERT INTO whiskey_reviews (username, comment, stars, whiskey_id) VALUES ('whiskeyLover401', 'Super delicious!', 5, 8)")
+database.execute("INSERT INTO whiskey_reviews (username, comment, stars, whiskey_id) VALUES ('whiskeyLover7701', 'Super delicious!', 4.4, 9)")
+database.execute("INSERT INTO whiskey_reviews (username, comment, stars, whiskey_id) VALUES ('whiskeyLover801', 'not for me', 1.5, 10)")
+database.execute("INSERT INTO whiskey_reviews (username, comment, stars, whiskey_id) VALUES ('whiskeyLover0981', 'no comment', 2.1, 11)")
+database.execute("INSERT INTO whiskey_reviews (username, comment, stars, whiskey_id) VALUES ('whiskeyLover06561', 'no comment', 4, 12)")
+=end
 
 # Define method to allows users to add a whiskey (if not already in database) or their own review
 #def add_whiskey(database, whiskey_name, type_id, details_id, reviews_id)
 #	database.execute("INSERT INTO whiskey (whiskey_name, type_id, details_id, reviews_id) VALUES (?, ?, ?, ?)", [whiskey_name, type_id, details_id, review_id])
 #end
-
+=begin
 def create_whiskey_type(database, type_name)
 	database.execute("INSERT INTO whiskey_type (type_name) VALUES (?)", [type_name])
 end
@@ -121,11 +138,11 @@ def display_all_data(database)
 	all_data = database.execute("SELECT whiskey.whiskey_name, whiskey_type.type_name, whiskey_details.taste, whiskey_details.finish, whiskey_reviews.username,
 		whiskey_reviews.comment, whiskey_reviews.stars 
 		FROM whiskey 
-		JOIN whiskey_type 
+		INNER JOIN whiskey_type 
 		ON whiskey.type_id = whiskey_type.type_id
-		JOIN whiskey_details
+		INNER JOIN whiskey_details
 		ON whiskey.details_id = whiskey_details.details_id
-		JOIN whiskey_reviews
+		INNER JOIN whiskey_reviews
 		ON whiskey.reviews_id = whiskey_reviews.reviews_id
 		")
 	puts all_data
@@ -144,3 +161,4 @@ puts "Here you can learn all about various whiskies, enter your own review, or a
 
 #testing method display_all_whiskies(database)
 display_all_data(database)
+=end
