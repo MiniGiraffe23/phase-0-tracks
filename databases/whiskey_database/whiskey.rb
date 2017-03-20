@@ -105,7 +105,7 @@ database.execute("INSERT INTO whiskey_reviews (username, comment, stars, whiskey
 #def add_whiskey(database, whiskey_name, type_id, details_id, reviews_id)
 #	database.execute("INSERT INTO whiskey (whiskey_name, type_id, details_id, reviews_id) VALUES (?, ?, ?, ?)", [whiskey_name, type_id, details_id, review_id])
 #end
-=begin
+
 def create_whiskey_type(database, type_name)
 	database.execute("INSERT INTO whiskey_type (type_name) VALUES (?)", [type_name])
 end
@@ -161,4 +161,3 @@ puts "Here you can learn all about various whiskies, enter your own review, or a
 
 #testing method display_all_whiskies(database)
 display_all_data(database)
-=end
