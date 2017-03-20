@@ -3,6 +3,7 @@
 
 require 'sqlite3'
 database = SQLite3::Database.new("whiskies.db")
+database.results_as_hash = true
 
 # Create table to store whiskies:
 # 	-name
@@ -62,9 +63,13 @@ create_whiskey_reviews = <<-SQL
 SQL
 database.execute(create_whiskey_reviews)
 
-# Define method to allow users to search for a particular whiskey
 # Define method to allows users to add a whiskey (if not already in database) or their own review
-# Define method to display data from all tables
+def add_whiskey(database, whiskey, year, type_id, details_id, reviews_id)
+	database.execute("INSERT INTO whiskey (whiskey_name, year, type_id, details_id, reviews_id")
+end
+
+# Define method to display data from all tables# Define method to allow users to search for a particular whiskey
+# Define method to allow users to search for a particular whiskey
 # Add user interface to get input from user
 
 
