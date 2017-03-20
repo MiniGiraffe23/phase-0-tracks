@@ -57,7 +57,7 @@ create_whiskey_reviews = <<-SQL
 		comment VARCHAR (255),
 		stars INTEGER,
 		whiskey_id INTEGER,
-		FOREIGN KEY (whiskey_id) REFERENCES whiskey(whiskeyL_id)
+		FOREIGN KEY (whiskey_id) REFERENCES whiskey(whiskey_id)
 	)
 SQL
 database.execute(create_whiskey_reviews)
