@@ -15,5 +15,5 @@ POST is used for destructive actions such as creation, editing and deletion. GET
 
 A cookie is a text file that is stored by a browser on a user's computer/phone/device. They do not contain executable code. The infomation stored in the file allows web serves to use the inofrmation to identify users. A cookie is stored by sending an HTTP header caled Set_cookie. 
 
-Release 1
+
 
