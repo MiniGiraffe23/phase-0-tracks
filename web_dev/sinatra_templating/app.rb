@@ -24,4 +24,8 @@ post '/students' do
   redirect '/'
 end
 
+get '/students/remove' do
+	erb :remove_student
+end
+
 # add static resources
