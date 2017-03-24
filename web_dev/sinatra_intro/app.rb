@@ -82,3 +82,15 @@ get '/students_campus/:campus' do
 	student = db.execute("SELECT * FROM students WHERE campus = ?", [params[:campus]])
 	student.to_s
 end
+
+
+=begin RESEARCH
+
+1. Other ruby web app libraries: Padrino, Volt, Ruby on Rails
+
+2. Other databases: ActiveRecord, Heroku, DataMapper
+
+3. Web stack is a collection of software that is required for Web development. (Operating system, programming language, database software and a server)
+
+
+=end
