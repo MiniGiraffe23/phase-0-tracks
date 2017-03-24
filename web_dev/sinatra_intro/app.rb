@@ -57,7 +57,7 @@ end
 
 # write GET route that takes name as query paramater
 # prints "Good job, [name]!" if parameter present
-# prints "Good job!" if parameter not present 
+# prints "Good job!" if parameter not present t a
 get '/great_job' do
 	name = params[:name]
 	if name 
@@ -65,5 +65,15 @@ get '/great_job' do
 	else 
 		"Good job!"
 	end
+end
+
+# Write get route that uses parameters to add two numbers 
+# Responds with result
+get '/:numberOne/add/:numberTwo' do
+	numberOne = params[:numberOne].to_i
+	numberTwo = params[:numberTwo].to_i
+
+	answer = numberOne + numberTwo
+	"#{answer.to_s}"
 end
 
