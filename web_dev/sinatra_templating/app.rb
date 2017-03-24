@@ -1,6 +1,10 @@
 # require gems
 require 'sinatra'
+require 'sinatra/reloader'
 require 'sqlite3'
+configure :production do 
+	enable :reloader
+end
 
 set :public_folder, File.dirname(__FILE__) + '/static'
 
@@ -24,4 +28,20 @@ post '/students' do
   redirect '/'
 end
 
+get '/students/add_pet' do
+ 	erb :add_pet
+end
+
+post '/students' do
+	db.execute("INSERT INTO students (name, campus, age) VALUES (?,?,?)", [params['name'], params['campus'], params['age'].to_i])
+	redirect '/'
+end
+
+
+# post '/students_remove' do
+#	db.execute("DELETE FROM students WHERE (name, campus, age) VALUES (?,?,?)", [params['name'], params['campus'], params['age'].to_i])
+#	db.execute("DELETE FROM students WHERE name=? ", [params['name']])
+#	redirect '/'
+#end
+# remove Kolby Mertz, 38, SF
 # add static resources
