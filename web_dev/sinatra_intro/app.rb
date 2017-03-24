@@ -77,3 +77,8 @@ get '/:numberOne/add/:numberTwo' do
 	"#{answer.to_s}"
 end
 
+# OPTIONAL write a route that allows user to search database (name, or other attribute)
+get '/students_campus/:campus' do
+	student = db.execute("SELECT * FROM students WHERE campus = ?", [params[:campus]])
+	student.to_s
+end
