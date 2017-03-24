@@ -24,24 +24,17 @@ end
 # create new students via
 # a form
 post '/students' do
-  db.execute("INSERT INTO students (name, campus, age) VALUES (?,?,?)", [params['name'], params['campus'], params['age'].to_i])
-  redirect '/'
+  	db.execute("INSERT INTO students (name, campus, age) VALUES (?,?,?)", [params['name'], params['campus'], params['age'].to_i])
+ 	redirect '/'
 end
 
-get '/students/add_pet' do
- 	erb :add_pet
+get '/students/remove'
+	erb :remove_student
 end
 
-post '/students' do
-	db.execute("INSERT INTO students (name, campus, age) VALUES (?,?,?)", [params['name'], params['campus'], params['age'].to_i])
-	redirect '/'
+post '/students_remove' do
+	db.execute("DELETE FROM students WHERE (name, campus, age) VALUES (?,?,?)", [params['name'], params['campus'], params['age'].to_i])
+	redirect '/students'
 end
-
-
-# post '/students_remove' do
-#	db.execute("DELETE FROM students WHERE (name, campus, age) VALUES (?,?,?)", [params['name'], params['campus'], params['age'].to_i])
-#	db.execute("DELETE FROM students WHERE name=? ", [params['name']])
-#	redirect '/'
-#end
 # remove Kolby Mertz, 38, SF
 # add static resources
