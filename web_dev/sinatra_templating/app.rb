@@ -28,13 +28,13 @@ post '/students' do
  	redirect '/'
 end
 
-get '/students/remove'
+get '/students/remove' do
 	erb :remove_student
 end
 
 post '/students_remove' do
-	db.execute("DELETE FROM students WHERE (name, campus, age) VALUES (?,?,?)", [params['name'], params['campus'], params['age'].to_i])
-	redirect '/students'
+	db.execute("DELETE FROM students WHERE name=?", [params['name']])
+	redirect '/'
 end
 # remove Kolby Mertz, 38, SF
 # add static resources
